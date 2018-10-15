@@ -39,3 +39,60 @@ var moreNum = copyArr.filter(function (num) { return num > 2 });
 // var twoWord = copyArr.filter(function (str) { return str < copyArr.length });
 console.log(moreNum);
 // console.log(twoWord)
+
+// find     !
+console.log('find:');
+
+
+var indexEl = 0;
+function findVal(arr, value) {
+  indexEl = arr.indexOf(value);
+  return indexEl
+}
+findVal(copyArr, "Some Text");
+console.log(indexEl);
+
+/////////////////////////////
+
+
+// map
+console.log('map:');
+var car = ['audi', 'bmw', 'lexus', 'toyota'];
+var carLength = car.map(function (name){
+  return name.length
+});
+console.log(car);
+console.log(carLength);
+// #2
+var carUpperCase = car.map(function (name) {
+  return name.toUpperCase()
+});
+console.log(carUpperCase);
+var carVehicle = car.map(function (name) {
+  return 'Vehicle: ' + name
+});
+console.log(carVehicle);
+
+
+
+// slice
+console.log('slice:');
+var partCars = carVehicle.slice(1, 2);
+console.log(partCars);
+
+// splice
+console.log('splice:');
+var carRally = car.splice(1, 2, "subaru", "mitsubishi");
+console.log(car);
+console.log(carRally);
+
+// shift
+console.log('shift:');
+var someCar = car.shift();
+console.log(someCar);
+console.log(car);
+
+// unshift
+console.log('unshift:');
+car.unshift('volvo', 'porsche');
+console.log(car);
