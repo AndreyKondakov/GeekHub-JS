@@ -33,6 +33,13 @@ console.log(testingJoin);
 console.log('forEach:');
 copyArr.forEach(function (allElement) { console.log(allElement); });
 
+console.log('forEach #2:');
+var brand = ['Samsung', 'Asus', 'Lenovo'];
+brand.forEach(function (allBrand) {
+  console.log('This is a good brand: ' + allBrand)
+});
+
+
 // filter   !?
 console.log('filter:');
 var moreNum = copyArr.filter(function (num) { return num > 2 });
@@ -96,3 +103,26 @@ console.log(car);
 console.log('unshift:');
 car.unshift('volvo', 'porsche');
 console.log(car);
+
+//////////////////////////////////  other
+
+
+// sort
+console.log('sort:');
+
+var numbers = [3, 4, 11, 1, 394, 88, 1];
+console.log(numbers);
+numbers.sort();
+console.log(numbers);
+
+function compareNumeric(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+}
+numbers.sort(compareNumeric);
+console.log(numbers);
+
+// reverse
+console.log("reverse:");
+numbers.reverse();
+console.log(numbers);
