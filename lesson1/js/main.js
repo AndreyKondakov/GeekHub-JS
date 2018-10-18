@@ -59,6 +59,14 @@ function findVal(arr, value) {
 findVal(copyArr, "Some Text");
 console.log(indexEl);
 
+console.log('#2');
+var simpleNum = [1,2,3,4,5,6,7,9,12,13,14,155,55,555];
+
+var resultOne = simpleNum.find(function firstOne(element, index, array) {
+  return element > 6
+});
+console.log(resultOne);
+
 /////////////////////////////
 
 
