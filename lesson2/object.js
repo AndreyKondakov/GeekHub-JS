@@ -1,9 +1,9 @@
-var cat = {
+let cat = {
   0: 'color: "red"',
   1: "sex: 'male'",
   2: "name: 'Redbull'"
 };
-var count = 3;
+let count = 3;
 console.log(cat);
 
 // push
@@ -39,4 +39,19 @@ cat.find = function (value) {
 console.log(cat.find(0));
 
 
+// map
+console.log('map:');
+let newArr = {};
+cat.map = function () {
+  for (let i = 0; i < count; i++) {
+    newArr[i] = cat[i].length
+  }
+};
+
+cat.map();
+console.log(newArr);
+
+
+// sort
+// console.log('sort:');
 
