@@ -1,2 +1,4 @@
 # Foulders
 .idea/
+cache/
+cache.js

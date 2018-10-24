@@ -38,20 +38,72 @@ cat.find = function (value) {
 };
 console.log(cat.find(0));
 
-
 // map
-console.log('map:');
+console.log('map: (cat => length)');
 let newArr = {};
 cat.map = function () {
   for (let i = 0; i < count; i++) {
     newArr[i] = cat[i].length
   }
 };
-
 cat.map();
 console.log(newArr);
 
+// sort    !?
+console.log('sort:');
+//
+let manyNumbers = {  0: 992,  1: 43,  2: 23,  3: 4452,  4: 9,  5: 92  };
+console.log(manyNumbers);
 
-// sort
-// console.log('sort:');
+for(var valueCaunt in manyNumbers) {  }
+valueCaunt++;
+console.log(valueCaunt);
+
+let saveNumbers = [];
+manyNumbers.sort = function () {
+  for (let i = 0; i < valueCaunt; i++) {
+    saveNumbers.push(manyNumbers[i])
+  }
+};
+function compareNumeric(a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+}
+manyNumbers.sort(compareNumeric);
+console.log(saveNumbers);
+saveNumbers.sort(compareNumeric);
+console.log(saveNumbers);
+
+
+
+// toString   !!
+console.log('toString:');
+var bestBrand = {
+  'phone': 'samsung',
+  'car': 'bmw',
+  'laptop': 'asus',
+  'tablet': 'ipad'
+};
+
+var brandStr = '';
+
+for(var i in bestBrand) {
+  // console.log(i); // печатает и bar и moo
+  brandStr += i + ': ' + bestBrand[i] + '; '
+}
+console.log('brandStr:', brandStr);
+console.log(typeof(brandStr));
+console.log('bestBrand', bestBrand);
+
+console.log('#2:');
+
+var bestBrandStr = Object.keys(bestBrand)
+console.log(bestBrandStr);
+var newStr = bestBrandStr.join('; ');
+console.log(newStr);
+
+
+console.log('#3:');
+console.log('bestBrand', bestBrand);
+
 
