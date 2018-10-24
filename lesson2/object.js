@@ -97,7 +97,7 @@ console.log('bestBrand', bestBrand);
 
 console.log('#2:');
 
-let bestBrandStr = Object.keys(bestBrand)
+let bestBrandStr = Object.keys(bestBrand);
 console.log(bestBrandStr);
 let newStr = bestBrandStr.join('; ');
 console.log(newStr);
@@ -108,7 +108,7 @@ console.log('bestBrand', bestBrand);
 
 
 // getter
-console.log('Getter:')
+console.log('Getter:');
 
 let car = {
   'BMW': 'M3',
@@ -130,5 +130,29 @@ console.log(car.getCountCars());
 car['Mclaren'] = 'P1';
 car['Porshe'] = '911 GT3 RS';
 
-console.log(car)
+console.log(car);
 console.log(car.getCountCars());
+
+
+// Task with *
+
+let likeArray = {};
+likeArray.setSomeArguments = function () {
+  for (let i=0; i < arguments.length; i++) {
+    likeArray[i] = arguments[i]
+  }
+};
+
+likeArray.setSomeArguments('nwer', 'wert', 'ewrg');
+console.log(likeArray);      //  {0: "nwer", 1: "wert", 2: "ewrg", setSomeArguments: ƒ}
+
+likeArray.setSomeArguments('444fghjf4');
+console.log(likeArray);     // {0: "234", 1: "444цукц4  ", 2: "ewrg", setSomeArguments: ƒ}  ????????
+
+
+
+
+
+
+
+
