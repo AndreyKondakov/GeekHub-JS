@@ -78,7 +78,7 @@ console.log(saveNumbers);
 
 // toString   !!
 console.log('toString:');
-var bestBrand = {
+let bestBrand = {
   'phone': 'samsung',
   'car': 'bmw',
   'laptop': 'asus',
@@ -97,9 +97,9 @@ console.log('bestBrand', bestBrand);
 
 console.log('#2:');
 
-var bestBrandStr = Object.keys(bestBrand)
+let bestBrandStr = Object.keys(bestBrand)
 console.log(bestBrandStr);
-var newStr = bestBrandStr.join('; ');
+let newStr = bestBrandStr.join('; ');
 console.log(newStr);
 
 
@@ -107,3 +107,28 @@ console.log('#3:');
 console.log('bestBrand', bestBrand);
 
 
+// getter
+console.log('Getter:')
+
+let car = {
+  'BMW': 'M3',
+  'Mitsubishi': 'Lancer EVO',
+  'Subaru': 'Impreza WRX'
+
+};
+
+car.getCountCars = function getCountCars() {
+  let counter = 0;
+  for (let key in car) {
+    counter++
+  }
+  return counter
+};
+
+console.log(car.getCountCars());
+
+car['Mclaren'] = 'P1';
+car['Porshe'] = '911 GT3 RS';
+
+console.log(car)
+console.log(car.getCountCars());
