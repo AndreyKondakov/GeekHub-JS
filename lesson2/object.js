@@ -74,6 +74,12 @@ console.log(saveNumbers);
 saveNumbers.sort(compareNumeric);
 console.log(saveNumbers);
 
+// #2
+console.log('sort: #2');
+
+
+
+
 
 // toString   !!
 console.log('toString:');
@@ -105,6 +111,18 @@ console.log('#3:');
 console.log('bestBrand', bestBrand);
 
 
+// console.log('#4:');
+// let someNum = {  0: 9392,  1: 443,  2: 123,  3: 40002,  4: 9,  5: 22,
+//   toString: function() {
+//     return this
+//
+//   }
+// };
+//
+// let someNumSrt = someNum.toString()
+
+
+
 // getter
 console.log('Getter:');
 
@@ -134,20 +152,18 @@ console.log(car.getCountCars());
 
 // Task with *
 
-let likeArray = {};
+let likeArray = { count : 0 };
 likeArray.setSomeArguments = function () {
   for (let i=0; i < arguments.length; i++) {
-    likeArray[i] = arguments[i]
+    likeArray[likeArray.count++] = arguments[i]
   }
 };
 
 likeArray.setSomeArguments('nwer', 'wert', 'ewrg');
-console.log(likeArray);      //  {0: "nwer", 1: "wert", 2: "ewrg", setSomeArguments: ƒ}
+console.log(likeArray);
 
-likeArray.setSomeArguments('444fghjf4');
-console.log(likeArray);     // {0: "234", 1: "444цукц4  ", 2: "ewrg", setSomeArguments: ƒ}  ????????
-
-
+likeArray.setSomeArguments('444fghjf4', 'sdfs45', 'SOme Test ');
+console.log(likeArray);
 
 
 
