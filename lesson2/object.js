@@ -75,7 +75,6 @@ saveNumbers.sort(compareNumeric);
 console.log(saveNumbers);
 
 
-
 // toString   !!
 console.log('toString:');
 let bestBrand = {
@@ -88,7 +87,6 @@ let bestBrand = {
 var brandStr = '';
 
 for(var i in bestBrand) {
-  // console.log(i); // печатает и bar и moo
   brandStr += i + ': ' + bestBrand[i] + '; '
 }
 console.log('brandStr:', brandStr);
