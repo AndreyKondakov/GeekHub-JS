@@ -51,13 +51,10 @@ console.log(newArr);
 
 // sort    !?
 console.log('sort:');
-//
 let manyNumbers = {  0: 992,  1: 43,  2: 23,  3: 4452,  4: 9,  5: 92  };
 console.log(manyNumbers);
 
-for(var valueCaunt in manyNumbers) {  }
-valueCaunt++;
-console.log(valueCaunt);
+for(var valueCaunt in manyNumbers) { valueCaunt++; }
 
 let saveNumbers = [];
 manyNumbers.sort = function () {
@@ -74,14 +71,8 @@ console.log(saveNumbers);
 saveNumbers.sort(compareNumeric);
 console.log(saveNumbers);
 
-// #2
-console.log('sort: #2');
 
-
-
-
-
-// toString   !!
+// toString
 console.log('toString:');
 let bestBrand = {
   'phone': 'samsung',
@@ -90,37 +81,38 @@ let bestBrand = {
   'tablet': 'ipad'
 };
 
-var brandStr = '';
-
-for(var i in bestBrand) {
-  brandStr += i + ': ' + bestBrand[i] + '; '
+function makeStr(obj) {
+  var brandStr = '';
+  for(var i in obj) {
+    brandStr += i + ': ' + bestBrand[i] + '; '
+  }
+  return brandStr
 }
-console.log('brandStr:', brandStr);
-console.log(typeof(brandStr));
-console.log('bestBrand', bestBrand);
+console.log(makeStr(bestBrand));
 
 console.log('#2:');
-
 let bestBrandStr = Object.keys(bestBrand);
 console.log(bestBrandStr);
 let newStr = bestBrandStr.join('; ');
 console.log(newStr);
 
+// console.log('#3:');
+// console.log('bestBrand', bestBrand);
 
 console.log('#3:');
-console.log('bestBrand', bestBrand);
+let someNum = {  0: 9392,  1: 443,  2: 123,  3: 40002,  4: 9,  5: 22 };
 
-
-// console.log('#4:');
-// let someNum = {  0: 9392,  1: 443,  2: 123,  3: 40002,  4: 9,  5: 22,
-//   toString: function() {
-//     return this
-//
-//   }
-// };
-//
-// let someNumSrt = someNum.toString()
-
+function objToString (obj) {
+  var str = '';
+  for (var p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      str += p + ': ' + obj[p] + '; ';
+    }
+  }
+  return str;
+}
+let answerObjToStr = objToString(someNum);
+console.log(answerObjToStr);
 
 
 // getter
@@ -164,9 +156,3 @@ console.log(likeArray);
 
 likeArray.setSomeArguments('444fghjf4', 'sdfs45', 'SOme Test ');
 console.log(likeArray);
-
-
-
-
-
-
