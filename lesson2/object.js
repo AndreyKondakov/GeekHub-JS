@@ -96,9 +96,6 @@ console.log(bestBrandStr);
 let newStr = bestBrandStr.join('; ');
 console.log(newStr);
 
-// console.log('#3:');
-// console.log('bestBrand', bestBrand);
-
 console.log('#3:');
 let someNum = {  0: 9392,  1: 443,  2: 123,  3: 40002,  4: 9,  5: 22 };
 
@@ -115,31 +112,42 @@ let answerObjToStr = objToString(someNum);
 console.log(answerObjToStr);
 
 
-// getter
+// getter (fix)
 console.log('Getter:');
 
 let car = {
   'BMW': 'M3',
   'Mitsubishi': 'Lancer EVO',
-  'Subaru': 'Impreza WRX'
-
-};
-
-car.getCountCars = function getCountCars() {
-  let counter = 0;
-  for (let key in car) {
-    counter++
+  'Subaru': 'Impreza WRX',
+  get getCountCars() {
+    let counetr = 0;
+    for (let key in this) {
+      counetr++
+    }
+    return counetr
   }
-  return counter
 };
+// get #2
+Object.defineProperty(car, "getCountCars2",
+  {
+    get: function () {
+      let counter = 0;
+      for (let key in this) {
+        counter++
+      }
+      return counter
+    }
+  });
 
-console.log(car.getCountCars());
+
+console.log(car.getCountCars);
 
 car['Mclaren'] = 'P1';
 car['Porshe'] = '911 GT3 RS';
 
 console.log(car);
-console.log(car.getCountCars());
+console.log(car.getCountCars);
+console.log(car.getCountCars2);
 
 
 // Task with *
@@ -156,3 +164,60 @@ console.log(likeArray);
 
 likeArray.setSomeArguments('444fghjf4', 'sdfs45', 'SOme Test ');
 console.log(likeArray);
+
+
+// 28.10.18   get
+
+let user7594 = {
+  name: 'Ken',
+  secondName: '',
+  status: 'user',
+  get getFullName() {
+    return this.firstName + ' ' + this.secondName;
+  }
+};
+
+console.log(user7594.getFullName);
+user7594.secondName = 'Lee';
+console.log(user7594.getFullName);
+
+
+
+let adminAK = {
+  name: 'Andrey',
+  status: 'programmer',
+  priority: 'superAdmin',
+  password: 'qerq657ad5afa6d'
+};
+let adminNK = {
+  name: 'Nick',
+  status: 'creator',
+  priority: 'superAdmin',
+  password: 'qerq657ad5afa6d'
+};
+
+function programmerOrNot(obj) {
+  Object.defineProperty(obj, 'doYouProgrammer', {
+    get: function () {
+      if (this.status == ['programmer']) {
+        // alert('Добро пожаловать')
+        document.getElementById('logIn').innerHTML = "Добро пожаловать " + this.name + ' !';
+        console.log("Добро пожаловать " + this.name + ' !');
+      } else if (this.status == ['creator']) {
+        // alert(' Что пожелаете? ')
+        document.getElementById('logIn').innerHTML = "Добро пожаловать создатель " + this.name + ' !';
+        console.log("Добро пожаловать создатель" + this.name + ' !');
+      } else {
+        // alert(' Что вы здесь делаете?')
+        document.getElementById('logIn').innerHTML = "Это админка, " + this.name + ' ! Что вы здесь забыли?';
+        console.log("Это админка, " + this.name + ' ! Что вы здесь забыли?');
+      }
+    }
+  });
+  return obj.doYouProgrammer
+};
+
+programmerOrNot(adminAK);
+programmerOrNot(user7594);
+programmerOrNot(adminNK);
+
