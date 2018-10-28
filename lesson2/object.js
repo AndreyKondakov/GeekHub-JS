@@ -205,8 +205,8 @@ function programmerOrNot(obj) {
         console.log("Добро пожаловать " + this.name + ' !');
       } else if (this.status == ['creator']) {
         // alert(' Что пожелаете? ')
-        document.getElementById('logIn').innerHTML = "Добро пожаловать создатель " + this.name + ' !';
-        console.log("Добро пожаловать создатель" + this.name + ' !');
+        document.getElementById('logIn').innerHTML = "Добро пожаловать, создатель " + this.name + ' !';
+        console.log("Добро пожаловать создатель " + this.name + ' !');
       } else {
         // alert(' Что вы здесь делаете?')
         document.getElementById('logIn').innerHTML = "Это админка, " + this.name + ' ! Что вы здесь забыли?';
