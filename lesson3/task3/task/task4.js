@@ -39,8 +39,22 @@ var stringDotTests = [
 
 function stringDot(word) {
     //TODO
+  var vowels = 'aoyeui';
+  var str = word.toLowerCase()
+  var finalStr = '';
+  for (var i=0; i<str.length; i++) {
+    str[i].replace(/['a', 'o', 'y', 'e', 'u', 'i']/g, "") ? finalStr += '.' + str[i] : false
+  }
+ return finalStr
+
 }
 
+
+
+
+console.log(stringDot('tour'))
+console.log(stringDot('GeekHub'))
+console.log(stringDot('tak'))
 
 tasks.push({
     title: "Упражнение на строки",
