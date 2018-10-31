@@ -51,11 +51,6 @@ function stringDot(word) {
 
 
 
-
-console.log(stringDot('tour'))
-console.log(stringDot('GeekHub'))
-console.log(stringDot('tak'))
-
 tasks.push({
     title: "Упражнение на строки",
     solution: stringDot,

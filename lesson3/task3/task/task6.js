@@ -31,11 +31,31 @@ var prettyYearTests = [
         expectedResult: 8901
     }
 ];
-
+var result = 0;
 
 function prettyYear(y) {
     //TODO
+  if (y <= 1000 || y >= 9000) {
+    console.log('Error')
+    return false
+  }
+
+ var test = +y +1
+  var nonUnique = "" + test;
+  var unique = nonUnique.split('').filter(function(item, i, ar){
+    return ar.indexOf(item) === i;
+  }).join('');
+
+  if (unique.length < 4) {
+    return prettyYear(+y + 1)
+  } else {
+    console.log(+unique);
+    return +unique
+  }
+
+
 }
+
 
 
 tasks.push({

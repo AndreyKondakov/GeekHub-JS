@@ -60,8 +60,6 @@ function luckyNumber(number) {
     var testInteger7 = number / 7;
     var str = '' + number;
     var newstr = str.replace(/[^'4', '7']/g, "");
-  console.log(newstr.length)
-  console.log(str.length)
   if (7 > str.length) {
       return false
     } else if ((testInteger7 ^ 0) === true ) {

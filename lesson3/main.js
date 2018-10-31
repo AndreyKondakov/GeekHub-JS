@@ -88,3 +88,147 @@ console.log(mathProgress(4));
 //   }
 // }
 // console.log(res);
+
+
+/////
+
+
+
+function prettyYear(y) {
+  //TODO
+  if (y <= 1000 || y >= 9000) {
+    alert('Error');
+    // return false
+  }
+  var inputData = '' + y
+  console.log(inputData);
+
+  function hasDuplicates(array) {
+    return (new Set(array)).size !== array.length;
+  }
+  var test = hasDuplicates(inputData);
+  console.log(test)
+  do {
+    y++
+  } while (hasDuplicates)
+
+
+}
+
+
+
+
+
+function prettyYear(y) {
+  //TODO
+  if (y <= 1000 || y >= 9000) {
+    alert('Error');
+    // return false
+  }
+  var inputData = '' + y;
+  console.log(inputData);
+
+  function hasDuplicates(array) {
+    var arrayStr = '' + array
+    return (new Set(arrayStr)).size !== arrayStr.length;
+  }
+  // var test = hasDuplicates(inputData);
+  // console.log(test)
+  do {
+    +inputData ++
+  } while (hasDuplicates(+inputData) == false)
+
+
+}
+
+
+
+
+
+
+console.log(prettyYear(5545));
+function prettyYear(y) {
+  //TODO
+  if (y <= 1000 || y >= 9000) {
+    alert('Error');
+    // return false
+  }
+  // var inputData = '' + y;
+  // console.log(inputData);
+
+  // function hasDuplicates(array) {
+  //    var arrayStr = '' + array
+  //   return (new Set(arrayStr)).size !== arrayStr.length;
+  // }
+
+  do {
+    +inputData ++
+    inputData.toString()
+    (new Set(inputData)).size !== inputData.length;
+  } while (hasDuplicates(inputData) == false)
+
+}
+
+
+
+
+
+function prettyYear(y) {
+  //TODO
+  if (y <= 1000 || y >= 9000) {
+    alert('Error');
+    // return false
+  }
+  // var input = y + 1 + '';
+  // var result = input.replace(/([0-9])\1/ig, '');
+  // console.log(result)
+  // while (result.length !== 4) {
+  //
+  // }
+  // return result
+
+  var input = '' + y ;
+  var resultBoolean
+
+
+  function returnPlusOne(y) {
+    input = + y ++;
+    // var test = input.toString()
+    var result = input.toString().replace(/([0-9])\1/ig, '');
+
+    if (result.length == y.toString().length) {
+      resultBoolean = true
+      return result = y
+    } else {
+      return returnPlusOne(y)
+    }
+    return result
+  }
+
+  returnPlusOne(input)
+
+  return result
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
