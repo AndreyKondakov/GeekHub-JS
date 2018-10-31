@@ -35,8 +35,14 @@ var factorialTests = [
 
 function factorial(n) {
     //TODO
+  if (n == 0) {
+      return 1
+  } else if (n < 0) {
+      return NaN
+  } else {
+    return (n != 1) ? n * factorial(n - 1) : 1;
+  }
 }
-
 
 tasks.push({
     title: "Факториал",

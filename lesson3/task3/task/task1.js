@@ -33,6 +33,7 @@ var fibonacciTests = [
 
 
 function fibonacci(n) {
+  //TODO
     if (n == 1) {
         return n
     } else if (n == 0) {
@@ -57,5 +58,3 @@ tasks.push({
     solution: fibonacci,
     tests: fibonacciTests
 });
-
-console.log(fibonacci(20));
