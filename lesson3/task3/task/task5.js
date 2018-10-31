@@ -34,7 +34,7 @@ var luckyNumberTests = [
         expectedResult: false
     },
     {
-        parameters: ["44444444447777777777474744747474747474747474"],
+            parameters: ["44444444447777777777474744747474747474747474"],
         expectedResult: true
     },
     {
@@ -56,6 +56,23 @@ var luckyNumberTests = [
 
 function luckyNumber(number) {
     //TODO
+    var testInteger4 = number / 4;
+    var testInteger7 = number / 7;
+    var str = '' + number;
+    var newstr = str.replace(/[^'4', '7']/g, "");
+  console.log(newstr.length)
+  console.log(str.length)
+  if (7 > str.length) {
+      return false
+    } else if ((testInteger7 ^ 0) === true ) {
+      return true
+    } else if ((testInteger4 ^ 0) === true ) {
+      return true
+    } else if (newstr == number) {
+      return true
+    } else {
+      return false
+    }
 }
 
 
