@@ -46,7 +46,15 @@ var longWordTests = [
 
 function longWord(word) {
     //TODO
+  if (word.length > 10) {
+    var wordLength = word.length -1
+    var abbreviation = word[0] + (wordLength - 1) + word[wordLength]
+    return abbreviation
+  } else {
+      return word
+  }
 }
+
 
 
 tasks.push({
