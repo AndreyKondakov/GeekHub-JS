@@ -37,19 +37,31 @@ var doubleColaTests = [
     {
         parameters: [1802],
         expectedResult: "Penny"
-    }
-    // },
-    // {
-    //     parameters: [12345],
-    //     expectedResult: "Leonard"
     // }
+    },
+    {
+        parameters: [12345],
+        expectedResult: "Leonard"
+    }
 ];
 
 
 function doubleCola(n) {
     //TODO
+  var arr = ["TBB", "Sheldon", "Leonard", "Penny", "Rajesh", "Howard" ];
+  if (n == 1) {
+    return arr[n]
+  } else {
+    arr.shift();
+    for (var i = 0; (arr.length -1 )< n; i++ ) {
+        arr.push(arr[i])
+        arr.push(arr[i])
+    }
+  }
+  return arr[n]
 }
 
+doubleCola(20);
 
 tasks.push({
     title: "Double Cola",
