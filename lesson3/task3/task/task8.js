@@ -77,14 +77,13 @@ function registration(names) {
       passed.push(names[i]);
       userLog.push("OK");
   } else if ((passed.indexOf( names[i] ) != -1 ) == true) {
-      passed.push((names[1] + i));
-      userLog.push((names[1] + i));
+      let num = +1;
+      passed.push((names[i] + num));
+      userLog.push((names[i] + num));
     }
-
-
+  }
     return userLog
 }
-
 
 var newNEW = registration([
   "abacaba",

@@ -50,66 +50,9 @@ console.log(mathProgress(4));
 
 //
 
-function registration(names) {
-  //TODO
-  if ((userNames.indexOf( names ) != -1 ) == false) {
-    userNames.push(names);
-    return "OK"
-  } else {
-    var i = 0;
-    do {
-      i++;
-      names + i;
-    } while ((userNames.indexOf( names ) != -1 ) == false) ;
-    userNames.push(names + i)
-    return userNames
-  }
-
-}
-var userNames = [];
-console.log(userNames);
-
-registration('tess');
-registration('tess');
 
 
 
-
-/////////////
-
-
-
-
-
-function registration(names) {
-  //TODO
-
-  var userNames = [];
-
-  names.forEach(function (entry) {
-    if ((userNames.indexOf( names ) != -1 ) == false) {
-      userNames.push('OK');
-      // return "OK"
-    } else {
-      var i = 0;
-      do {
-        i++;
-        names + i;
-      } while ((userNames.indexOf( names ) != -1 ) == false);
-      userNames.push(names + i);
-      // return userNames
-    }
-  });
-
-
-  return userNames
-
-
-
-
-
-
-}
 
 
 
