@@ -69,7 +69,44 @@ var registrationTests = [
 
 function registration(names) {
     //TODO
+  var passed = [];
+  var userLog = [];
+
+  for (var i = 0; i < names.length; i++) {
+    if ((passed.indexOf( names[i] ) != -1 ) == false) {
+      passed.push(names[i]);
+      userLog.push("OK");
+  } else if ((passed.indexOf( names[i] ) != -1 ) == true) {
+      passed.push((names[1] + i));
+      userLog.push((names[1] + i));
+    }
+
+
+    return userLog
 }
+
+
+var newNEW = registration([
+  "abacaba",
+  "acaba",
+  "abacaba",
+  "acab"
+]);
+console.log(newNEW);
+
+var test2 = registration([
+  "first",
+  "first",
+  "second",
+  "second",
+  "third",
+  "third",
+  "third"
+]);
+console.log(test2);
+
+
+
 
 
 tasks.push({
