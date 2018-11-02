@@ -84,17 +84,16 @@ function registration(names) {
     if ((passed.indexOf( names[i] ) != -1 ) == false) {
       passed.push(names[i]);
       userLog.push("OK");
-      // var num = +1;
-      count(0)
+      count(0);
   } else if ((passed.indexOf( names[i] ) != -1 ) == true) {
-      count(1)
+      count(1);
       passed.push((names[i] + num));
       userLog.push((names[i] + num));
     }
   }
     return userLog
 }
-  
+
 
 tasks.push({
     title: "Система регистрации",
