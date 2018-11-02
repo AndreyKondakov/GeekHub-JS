@@ -71,42 +71,30 @@ function registration(names) {
     //TODO
   var passed = [];
   var userLog = [];
+  var num = 0;
+  function count(n) {
+    if (n == 0) {
+      num = 0
+    } else {
+      num++
+    }
+  }
 
   for (var i = 0; i < names.length; i++) {
     if ((passed.indexOf( names[i] ) != -1 ) == false) {
       passed.push(names[i]);
       userLog.push("OK");
+      // var num = +1;
+      count(0)
   } else if ((passed.indexOf( names[i] ) != -1 ) == true) {
-      let num = +1;
+      count(1)
       passed.push((names[i] + num));
       userLog.push((names[i] + num));
     }
   }
     return userLog
 }
-
-var newNEW = registration([
-  "abacaba",
-  "acaba",
-  "abacaba",
-  "acab"
-]);
-console.log(newNEW);
-
-var test2 = registration([
-  "first",
-  "first",
-  "second",
-  "second",
-  "third",
-  "third",
-  "third"
-]);
-console.log(test2);
-
-
-
-
+  
 
 tasks.push({
     title: "Система регистрации",
