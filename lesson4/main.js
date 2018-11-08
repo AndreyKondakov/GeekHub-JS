@@ -1,56 +1,33 @@
-// let result = arr.reduce(function (a, b) {
-//
-//   var sum = 0
-//   var difference = 0
-//   var c = 0
-//
-//   if (a > b) {
-//     difference = a - b;
-//     sum = difference
-//
-//   } else if (a < b && difference != 0) {
-//     c = b - a;
-//     // return 0
-//
-//     if (c > difference) {
-//       return c - difference
-//     }
-//     else {
-//       // return 0
-//     }
-//
-//
-//   } else {
-//     return b
-//   }
-//
-//   sum += difference
-//   return sum
-//
-//
-//
-// });
+let arrRocks = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 0];
+let newTest = [1, 3, 5, 2, 8, 4, 5, 1];
 
-console.log(result);
+function rock(arr) {
+  var sum = 0;
+  var a = 0;
+  var count = 0;
+  var c = arr[arr.length - 1];
 
+  let result = arr.reduce(function (result, b, index, arr) {
+    if (a > b) {
+      sum += a - b;
+      return sum
+    } else {
+      a = b;
+      count = index
+    }
+  }, 0);
 
+  for (var i = arr.length - 1; i > count; i--) {
+    if (arr[i] > c) {
+      c = arr[i]
+    }
+    sum -= arr[count] - c;
+  }
+  return sum
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(rock(arrRocks));
+console.log(rock(newTest));
 
 
