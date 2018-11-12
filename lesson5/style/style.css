@@ -1,0 +1,12 @@
+.mg-top {
+  margin-top: 30px;
+}
+
+.todo-enter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-group-item:hover {
+  background-color: #28a745;
+}
