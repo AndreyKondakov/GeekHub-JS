@@ -42,7 +42,6 @@
       list.removeChild(target.parentNode.parentNode);
     }
   });
-
   // reverse todoList
   document.getElementById('reverse').onclick = function () {
     let items = list.querySelectorAll('li');
@@ -50,5 +49,4 @@
       list.appendChild(items[i])
     }
   }
-
 }());
