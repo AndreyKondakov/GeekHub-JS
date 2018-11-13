@@ -1,5 +1,5 @@
-
-
+(function () {
+'use strict';
 
 let todo = document.getElementById('todo');
 let buttonAdd = todo.querySelector('button');
@@ -16,12 +16,56 @@ buttonAdd.addEventListener('click', function () {
 });
 
 function createItem(list, text) {
-  let item = document.createElement('li');
+  const item = document.createElement('li');
   item.className = 'list-group-item';
 
-  let span = document.createElement('span');
-  span.innerText = text;
+  const span = document.createElement('span');
+  span.textContent = text;
   item.appendChild(span);
   list.appendChild(item);
 
+  const btn = document.createElement('button');
+  btn.className = 'btn btn-del';
+  btn.textContent = 'x'
+  item.appendChild(btn)
 }
+
+// let buttonDel = list.querySelector('button');
+//   let buttonDel = todo.getElementsByClassName('btn-del');
+
+// buttonDel.addEventListener('click', function () {
+  // let item = todo.querySelector('li')
+//   // let thisItem = list.
+//   console.log('text')
+
+//   // list.removeChild(item)
+//
+
+//   buttonDel.remove.previousSibling
+
+// });
+
+  // remove.addEventListener('click', function () {
+  //   removeTask(this);
+  // });
+
+//
+// let item = document.querySelector('li');
+// let buttonDel = document.querySelector('button');
+//
+//   item.onclick = function () {
+//   list.removeChild(this)
+// }
+//
+
+list.addEventListener('click', ({ target }) => {
+    if (target.tagName === 'BUTTON') {
+      list.removeChild(target.parentNode);
+    }
+  });
+
+
+
+
+
+}());
