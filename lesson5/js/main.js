@@ -27,14 +27,14 @@
     item.appendChild(div);
 
     const spanData = document.createElement('span');
-    const data = (new Date()).toString().split(' ').splice(1, 4).join(' ');
-    spanData.textContent = data;
-    div.appendChild(spanData)
+    const dataCreate = (new Date()).toString().split(' ').splice(1, 4).join(' ');
+    spanData.textContent =  dataCreate;
+    div.appendChild(spanData);
 
     const btn = document.createElement('button');
     btn.className = 'btn btn-del';
-    btn.textContent = 'x'
-    div.appendChild(btn)
+    btn.textContent = 'x';
+    div.appendChild(btn);
   }
   // del item on click
   list.addEventListener('click', ({target}) => {
@@ -43,7 +43,7 @@
     }
   });
 
-  // reverse todo list
+  // reverse todoList
   document.getElementById('reverse').onclick = function () {
     let items = list.querySelectorAll('li');
     for (let i = items.length -2; i >= 0; i--) {
