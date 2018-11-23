@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Games</title>
+  <link rel="stylesheet" href="stylesheet/style.css">
+</head>
+<body>
+
+
+<section id="character" class="character">
+  <aside class="rules">
+    <ul>
+      <li><img class="star" src="images/y.png"> - good</li>
+      <li><img class="star" src="images/n.png"> - bad</li>
+    </ul>
+  </aside>
+  <div id="character-block" class="character-block">
+    <div id="add-name" class="add-name">
+      <h1>Создайте своего персонажа</h1>
+      <span>Nickname:</span>
+      <input title="Text" placeholder="Введите имя..." type="text" class="form-control">
+      <button type="button" id="buttonName" class="btn">Сохранить</button>
+    </div>
+    <h2 id="userName"></h2>
+    <div class="game">
+      <ul class="character-title">
+        <li>
+          <span>Life: </span>
+        </li>
+        <li>
+          <span>Saturation</span>
+        </li>
+        <li>
+          <span>Strength</span>
+        </li>
+        <li>
+          <span>Happiness</span>
+        </li>
+      </ul>
+      <ul id="character-true" class="character-true">
+        <li class="character-life">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+        </li>
+        <li class="character-saturation">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+        </li>
+        <li class="character-strength">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+        </li>
+        <li class="character-happiness">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+          <img class="star" src="images/y.png">
+        </li>
+      </ul>
+      <ul class="character-false">
+        <li class="character-life">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+        </li>
+        <li class="character-saturation">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+        </li>
+        <li class="character-strength">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+        </li>
+        <li class="character-happiness">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+          <img class="star" src="images/n.png">
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

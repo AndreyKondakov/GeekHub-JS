@@ -1,0 +1,41 @@
+li {
+  list-style: none;
+}
+
+.star {
+  width: 50px;
+}
+
+.character {
+  display: flex;
+}
+
+.rules {
+  width: 20%;
+}
+
+.character-block {
+  width: 80%;
+  padding-left: 20%;
+}
+
+.game {
+  display: flex;
+}
+
+.character-title {
+  padding-inline-start: 0;
+}
+
+.character-title li {
+  margin: 17px 0;
+}
+
+.character-true {
+  position: absolute;
+  margin-left: 66px;
+}
+
+.hidden {
+  display: none;
+}
