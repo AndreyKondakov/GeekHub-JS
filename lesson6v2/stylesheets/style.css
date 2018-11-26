@@ -1,0 +1,61 @@
+.progress {
+  background: -moz-linear-gradient(top, #333, #999); /* Fx 3.6+ */
+  background: -webkit-linear-gradient(top, #333, #999); /* Chrome 10+,Safari 5.1+ */
+  background: -o-linear-gradient(top, #333,#999); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #333, #999); /* IE10+ */
+  background: linear-gradient(to bottom, #333, #999); /* W3C */
+  border: 1px solid #333; /* Рамка */
+  height: 20px; /* Высота */
+  border-radius: 10px; /* Радиус скругления */
+  position: relative; /* Относительное позиционирование */
+  overflow: hidden; /* Прячем ненужную тень */
+}
+.progress::before{
+  content: '';
+  position: absolute; /* Абсолютное позиционирование */
+  height: 18px; width: 100%;
+  background: #5bc1fe; /* Для старых браузеров */
+  background: -moz-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* Fx 3.6+ */
+  background: -webkit-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* Chrome 10+,Safari 5.1+ */
+  background: -o-linear-gradient(top, #5bc1fe,#018ef2 50%,#57befd); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* IE10+ */
+  background: linear-gradient(to bottom, #5bc1fe,#018ef2 50%, #57befd); /* W3C */
+  border: 1px solid #008DF2; /* Рамка */
+  box-shadow: 3px 0 3px rgba(0,0,0,0.5); /* Тень справа */
+}
+
+
+.all-progress {
+  width: 350px;
+  height: 120px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.actions {
+  margin: 15px;
+}
+
+.item {
+  width: 440px;
+  height: 241px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+
+.item span:first-child {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.character {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
+}

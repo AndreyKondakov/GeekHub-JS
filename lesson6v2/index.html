@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character</title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+
+<div id="add-name" class="character-create">
+  <h2>Введите имя своего персонажа</h2>
+  <span>Nickname:</span>
+  <input title="Text" placeholder="Введите имя..." type="text" class="form-control">
+  <button type="button" id="buttonName" class="btn">Сохранить</button>
+</div>
+
+<section id="character" class="character">
+  <div class="item">
+    <span class="character-name">Name</span>
+
+    <div class="all-progress">
+      <div class="progress-life progress"></div>
+      <div class="progress-saturation progress"></div>
+      <div class="progress-strength progress"></div>
+      <div class="progress-happiness progress"></div>
+    </div>
+
+    <div class="actions">
+      <button class="action-walk">Выгулять</button>
+      <button class="action-eat">Покормить</button>
+      <button class="action-sleep">Положить спать</button>
+      <button class="action-play">Поиграть</button>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>
