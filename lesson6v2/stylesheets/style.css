@@ -10,10 +10,10 @@
   position: relative; /* Относительное позиционирование */
   overflow: hidden; /* Прячем ненужную тень */
 }
-.progress::before{
+.progress span{
   content: '';
   position: absolute; /* Абсолютное позиционирование */
-  height: 18px; width: 100%;
+  height: 18px; width: 50%;
   background: #5bc1fe; /* Для старых браузеров */
   background: -moz-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* Fx 3.6+ */
   background: -webkit-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* Chrome 10+,Safari 5.1+ */
@@ -49,7 +49,7 @@
   margin: 5px;
 }
 
-.item span:first-child {
+.item .character-name {
   font-size: 20px;
   margin-top: 10px;
 }
@@ -58,4 +58,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 5%;
+}
+
+.hidden {
+  display: none
 }

@@ -18,19 +18,22 @@ class Character {
       this.walk  = this.walk - 5;
       console.log('test walk', this.walk);
 
-      let life = document.getElementsByClassName('progress-life')[0].style.width = `${this.walk} + %`;
-      let testik = document.getElementById('add-name').style.color = 'red';
+
+      // let life = document.getElementsByClassName('progress-life progress-bar').style.width = `${this.walk} + %`;
+      // life.querySelector('span').style.width = `${this.walk} + %`;
+
+      // let testik = document.getElementById('add-name').style.color = 'red';
       this.eat =   this.eat - 5;
       console.log( this.eat);
-      let saturation = document.getElementsByClassName('progress-saturation')[0].style.width = `${this.eat} + %`;
+      // let saturation = document.getElementsByClassName('progress-saturation')[0].style.width = `${this.eat} + %`;
 
       this.sleep = this.sleep - 5;
       console.log( this.sleep);
-      let strength = document.getElementsByClassName('progress-strength')[0].style.width = `${this.sleep} + %`;
+      // let strength = document.getElementsByClassName('progress-strength')[0].style.width = `${this.sleep} + %`;
 
       this.play =  this.play - 5;
       console.log( this.play);
-      let happiness = document.getElementsByClassName('progress-happiness')[0].style.width = `${this.play} + %`;
+      // let happiness = document.getElementsByClassName('progress-happiness')[0].style.width = `${this.play} + %`;
 
       if ((this.walk && this.eat && this.sleep && this.play) <= 0 ) {
         clearTimeout(this.counter);
@@ -52,9 +55,12 @@ class Character {
       itemCopy.querySelector('span').innerHTML = `${name}`;
       new Character();
       // this.counter();
+      itemCopy.classList.remove('hidden');
 
-
+      // character.getElementsByClassName('item').innerHTML = 'test InnerHtml';
       character.appendChild(itemCopy);
+
+      // character.getElementsByClassName('character-name').style.color = 'green';
     }
     buttonAdd.addEventListener('click', function () {
       let newName = inputName.value;
@@ -66,9 +72,9 @@ class Character {
     })
   }
 
-  // walk() {
-  //
-  // }
+  walk() {
+
+  }
   // eat() {
   //
   // }
