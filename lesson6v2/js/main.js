@@ -1,127 +1,67 @@
 class Character {
   constructor(name) {
-    this.name = name
+    this.name = name;
     this.walk = 99;
     this.eat = 99;
     this.sleep = 99;
     this.play = 99;
 
-    // this.life = 99;
-    // this.saturation = 99;
-    // this.strength = 99;
-    // this.happiness = 99;
-
-    this.counter();
+    this.initCharacter(name);
+    // this.createItem(name);
+    // this.counter();
   }
-  // set Interval(value) {
-  //   var timerId = setInterval(function() {
-  //     console.log('test timer');
-  //     this.walk -= 2;
-  //     this.eat -= 2;
-  //     this.sleep -= 2;
-  //     this.play -= 2;
-  //   }, 2000);
-  // }
-
   counter () {
     setInterval(() => {
-      // this.countProperties();
-
-      this.walk  = this.walk - 5
-
-
-
-
-    }, 2000); // Пашет
+      this.walk  = this.walk - 5;
+      this.eat =   this.eat - 5;
+      this.sleep = this.sleep - 5;
+      this.play =  this.play - 5;
+    }, 2000);
   }
 
-  // countProperties () {
-  //   this.walk  = this.walk - 5
-  //   // this.eat =
-  //   // this.sleep =
-  //   // this.play =
+  createItem(name) {
+    const character = document.getElementById('character');
+    const items = character.children;
+    const mainItem = items[0];
+    const itemCopy = mainItem.cloneNode(true);
+    itemCopy.querySelector('span').innerHTML = `${name}`;
+
+
+    character.appendChild(itemCopy);
+  }
+
+
+  initCharacter () {
+    const addName = document.getElementById('add-name');
+    let inputName = addName.querySelector('input[type=text]');
+    let buttonAdd = addName.querySelector('button');
+
+    buttonAdd.addEventListener('click', function () {
+      let newName = inputName.value;
+      if (newName !== '') {
+        this.createItem(newName);
+        inputName.value = '';
+      }
+    })
+  }
+
+
+
+  // walk() {
+  //
   // }
-
-
-
-  walk() {
-
-  }
-  eat() {
-
-  }
-  sleep() {
-
-  }
-  play() {
-
-  }
+  // eat() {
+  //
+  // }
+  // sleep() {
+  //
+  // }
+  // play() {
+  //
+  // }
 }
 
-var test = new Character(name)
+let ted = 'ted';
 
-console.log(test.walk);
-
-
-
-//
-// var car = new Character(name)
-// console.log('test car', car.walk);
-
-
-
-
-
-// (function () {
-//
-//
-//   var timerId = setInterval(function() {
-//     console.log('test timer');
-//     // for (let i = 0; i<5; i++) {
-//
-//     // var car = new Character(tet)
-//     //   console.log('test car', car.walk);
-//
-//     // }
-//   }, 2000);
-//
-// })();
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var tess  = prompt('');
-// var test = new Character('' + tess)
-
-// console.log(test);
-
-// var timerId = setInterval(function() {
-//   console.log('test timer');
-// }, 2000);
-
-//
-// (function  () {
-//
-//
-//   var timerId = setInterval(function() {
-//     console.log('test timer');
-//   }, 2000);
-//
-//
-// })();
+var test = new Character(`${ted}`);
+console.log(test.name);
