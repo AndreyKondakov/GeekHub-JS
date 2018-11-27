@@ -1,16 +1,37 @@
+(function () {
+
 class Character {
   constructor() {
     // this.name = name;
-    this.walk = 80;
-    this.eat = 80;
-    this.sleep = 80;
-    this.play = 80;
+    this.walk = 20;
+    this.eat = 20;
+    this.sleep = 20;
+    this.play = 20;
 
     this.initCharacter();
     // this.createItem(name);
     // this.counter();
 
     // делаем counter в конструкторе , что бы время было свое у каждого нового обьекта
+
+    this.counter = setInterval(() => {
+      this.walk  = this.walk - 5;
+      console.log('test walk', this.walk);
+      
+      this.eat =   this.eat - 5;
+      console.log( this.eat);
+
+      this.sleep = this.sleep - 5;
+      console.log( this.sleep);
+
+      this.play =  this.play - 5;
+      console.log( this.play);
+
+      if ((this.walk && this.eat && this.sleep && this.play) <= 0 ) {
+        clearTimeout(this.counter);
+      }
+
+    }, 2000);
   }
   // counter () {
   //   setInterval(() => {
@@ -45,17 +66,16 @@ class Character {
       const mainItem = items[0];
       const itemCopy = mainItem.cloneNode(true);
       itemCopy.querySelector('span').innerHTML = `${name}`;
-
+      new Character();
       // this.counter();
+
 
       character.appendChild(itemCopy);
     }
-
     buttonAdd.addEventListener('click', function () {
       let newName = inputName.value;
       if (newName !== '') {
         createItem(newName);
-        // console.log(this.newName, this.walk);
 
         inputName.value = '';
       }
@@ -97,4 +117,8 @@ class Character {
 // var test = new Character(`${ted}`);
 // console.log(test.name);
 
-let test = new Character();
+new Character();
+
+
+
+})();
