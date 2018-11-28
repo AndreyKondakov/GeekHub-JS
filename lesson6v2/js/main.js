@@ -1,7 +1,8 @@
 (function () {
 
 class Character {
-  constructor() {
+  constructor(name = '') {
+    this.name = name;
     this.walk = 20;
     this.eat = 20;
     this.sleep = 20;
@@ -34,10 +35,34 @@ class Character {
       if ((this.walk && this.eat && this.sleep && this.play) <= 0 ) {
         clearTimeout(this.counter);
       }
-
+      console.log(this.name);
     }, 2000);
     // this.walkAction(this.walk);
     this.targetAction();
+
+    // this.targetAction = function() {
+    //   let character = document.getElementById('character');
+    //   character.addEventListener('click', ({target}) => {
+    //     if (target.tagName === 'BUTTON') {
+    //       console.log(target.className);
+    //       if (target.className === 'action-walk') {
+    //         this.walk = this.walk + 20;
+    //         console.log(target.className, '+20 = ', this.walk);
+    //       } else if (target.className === 'action-eat') {
+    //         this.eat = this.eat + 30;
+    //         console.log('eat +30 = ', this.eat)
+    //       } else if (target.className === 'action-sleep') {
+    //         this.sleep = this.sleep + 50;
+    //         console.log('this is the speel +50 = ', this.sleep)
+    //       } else if (target.className === 'action-play') {
+    //         this.play = this.play + 5;
+    //         this.eat = this.eat - 10;
+    //         console.log(this.walk, this.eat, this.sleep, this.play)
+    //       }
+    //     }
+    //     // return this.walk
+    //   })
+    // }
   }
 
   initCharacter () {
@@ -51,7 +76,7 @@ class Character {
       const mainItem = items[0];
       const itemCopy = mainItem.cloneNode(true);
       itemCopy.querySelector('span').innerHTML = `${name}`;
-      new Character();
+      // new Character(name);
       // this.counter();
       itemCopy.classList.remove('hidden');
 
@@ -64,7 +89,9 @@ class Character {
       let newName = inputName.value;
       if (newName !== '') {
         createItem(newName);
+        new Character(newName);
 
+        // console.log(this.name);
         inputName.value = '';
       }
     })
@@ -115,7 +142,7 @@ class Character {
   }
 }
 
-new Character();    // без такой записили или  var test = new Character() ничего не работает
+new Character('за функцией');    // без такой записили или  var test = new Character() ничего не работает
 
 })();
 
