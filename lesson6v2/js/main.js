@@ -2,15 +2,12 @@
 
 class Character {
   constructor() {
-    // this.name = name;
     this.walk = 20;
     this.eat = 20;
     this.sleep = 20;
     this.play = 20;
 
     this.initCharacter();
-    // this.createItem(name);
-    // this.counter();
 
     // делаю counter в конструкторе , что бы время было свое у каждого нового обьекта
     this.counter = setInterval(() => {
@@ -18,8 +15,7 @@ class Character {
       this.walk  = this.walk - 5;
       console.log('test walk', this.walk);
 
-
-      // let life = document.getElementsByClassName('progress-life progress-bar').style.width = `${this.walk} + %`;
+      // let life = document.getElementsByClassName('progress-life progress-bar')[0].style.width = `${this.walk} + %`;
       // life.querySelector('span').style.width = `${this.walk} + %`;
 
       // let testik = document.getElementById('add-name').style.color = 'red';
@@ -28,11 +24,11 @@ class Character {
       // let saturation = document.getElementsByClassName('progress-saturation')[0].style.width = `${this.eat} + %`;
 
       this.sleep = this.sleep - 5;
-      console.log( this.sleep);
+      // console.log( this.sleep);
       // let strength = document.getElementsByClassName('progress-strength')[0].style.width = `${this.sleep} + %`;
 
       this.play =  this.play - 5;
-      console.log( this.play);
+      // console.log( this.play);
       // let happiness = document.getElementsByClassName('progress-happiness')[0].style.width = `${this.play} + %`;
 
       if ((this.walk && this.eat && this.sleep && this.play) <= 0 ) {
@@ -40,6 +36,8 @@ class Character {
       }
 
     }, 2000);
+    // this.walkAction(this.walk);
+    this.targetAction();
   }
 
   initCharacter () {
@@ -72,27 +70,65 @@ class Character {
     })
   }
 
-  walk() {
+  // walkAction(number) {
+  //   // let actions = document.getElementsByClassName('actions');
+  //   let actionWalk = document.querySelector('button.action-walk');
+  //   actionWalk.addEventListener('click', function () {
+  //     console.log('(до добавления 20)=', number);
+  //     number += 20;
+  //     this.walk = number;
+  //     console.log('(walk + 20)=', this.walk);
+  //     return this.walk
+  //   })
+  // }
+  // eatAction() {
+  // }
+  // sleepAction() {
+  //
+  // }
+  // playAction() {
+  //
+  // }
 
+  targetAction() {
+    let character = document.getElementById('character');
+    character.addEventListener('click', ({target}) => {
+      if (target.tagName === 'BUTTON') {
+        console.log(target.className);
+        if (target.className === 'action-walk') {
+          this.walk = this.walk + 20;
+          console.log(target.className, '+20 = ', this.walk);
+        } else if (target.className === 'action-eat') {
+          this.eat = this.eat + 30;
+          console.log('eat +30 = ', this.eat)
+        } else if (target.className === 'action-sleep') {
+          this.sleep = this.sleep + 50;
+          console.log('this is the speel +50 = ', this.sleep)
+        } else if (target.className === 'action-play') {
+          this.play = this.play + 5;
+          this.eat = this.eat - 10;
+          console.log(this.walk, this.eat, this.sleep, this.play)
+        }
+      }
+      // return this.walk
+    })
   }
-  // eat() {
-  //
-  // }
-  // sleep() {
-  //
-  // }
-  // play() {
-  //
-  // }
 }
+
+new Character();    // без такой записили или  var test = new Character() ничего не работает
+
+})();
+
+
+
+
+
+
+
 //
 // let ted = 'ted';
 // var test = new Character(`${ted}`);
 // console.log(test.name);
-
-new Character();
-
-})();
 
 
 // counter () {
