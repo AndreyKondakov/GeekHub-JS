@@ -1,0 +1,30 @@
+.mg-top {
+  margin-top: 30px;
+}
+
+.todo-enter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-group-item:hover {
+  background-color: #28a745;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list li span {
+  line-height: 38px;
+  overflow: hidden;
+}
+
+/*.list-group-item span:nth-child(2n) {*/
+  /*position: relative;*/
+  /*left: 25%;*/
+/*}*/
+
+.list-group-item div span {
+  margin-right: 10px;
+}
