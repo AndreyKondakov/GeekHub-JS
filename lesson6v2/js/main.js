@@ -76,7 +76,7 @@ class Character {
       const mainItem = items[0];
       const itemCopy = mainItem.cloneNode(true);
       itemCopy.querySelector('span').innerHTML = `${name}`;
-      // new Character(name);
+      new Character(name);
       // this.counter();
       itemCopy.classList.remove('hidden');
 
@@ -89,7 +89,7 @@ class Character {
       let newName = inputName.value;
       if (newName !== '') {
         createItem(newName);
-        new Character(newName);
+        // new Character(newName);
 
         // console.log(this.name);
         inputName.value = '';
