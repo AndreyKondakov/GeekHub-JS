@@ -10,10 +10,10 @@
   let buttonUpdateText = 'Update';
   let buttonSaveText = 'Save';
 
-  var todos;
+  var saveTodo;
   function toLocal() {
-    todos = list.innerHTML;
-    localStorage.setItem('todos', todos);
+    saveTodo = list.innerHTML;
+    localStorage.setItem('saveTodo', saveTodo);
   }
 
 
@@ -123,7 +123,7 @@
     }
   };
 
-  if(localStorage.getItem('todos')){
-    list.innerHTML =localStorage.getItem('todos');
+  if(localStorage.getItem('saveTodo')){
+    list.innerHTML =localStorage.getItem('saveTodo');
   }
 }());
