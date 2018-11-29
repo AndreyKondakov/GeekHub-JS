@@ -9,6 +9,7 @@
 
 .list-group-item:hover {
   background-color: #28a745;
+  cursor: pointer;
 }
 
 .todo-list li {
@@ -44,3 +45,24 @@
 .hidden {
   display: none;
 }
+
+.checked {
+  background: #a8a8a8;
+  color: #a6ff9d;
+  text-decoration: line-through;
+  padding-left: 40px;
+}
+
+ul li.checked:before {
+  content: '';
+  position: absolute;
+  border-color: #31ff00;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 20px;
+  left: 20px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+

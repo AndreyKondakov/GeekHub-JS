@@ -77,6 +77,10 @@
         this.parentNode.removeChild(btnSave);
       }
     }
+    // else if (target === this.parentNode) {
+    //   target.className.toggle('checked');
+    // }
+
     // else if (isButton && target.textContent === buttonSaveText) {
     //   // console.log(firstSpan.textContent);
     //   // console.log(target.previousSibling.value);
@@ -94,6 +98,14 @@
     //   target.remove(target.previousSibling);
     // }
   });
+
+  // add checked 
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+
   // reverse todoList
   document.getElementById('reverse').onclick = function () {
     let items = list.querySelectorAll('li');
