@@ -62,6 +62,7 @@
 
     if (isButton && target.textContent === buttonDelText) {
       list.removeChild(target.parentNode.parentNode);
+      toLocal();
     } else if (isButton && target.textContent === buttonUpdateText) {
       let updating = target.parentNode.parentNode;
       const firstSpan = target.parentNode.previousSibling;
