@@ -28,3 +28,19 @@
 .list-group-item div span {
   margin-right: 10px;
 }
+
+.list-group-item input {
+  width: 40%;
+}
+
+.btn-update {
+  margin-right: 5px;
+}
+
+.btn-save {
+  flex: .5;
+}
+
+.hidden {
+  display: none;
+}

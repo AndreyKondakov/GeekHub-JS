@@ -6,6 +6,10 @@
   let list = todo.querySelector('ul');
   let inputTask = todo.querySelector('input[type=text]');
 
+  let buttonDelText = 'x';
+  let buttonUpdateText = 'Update';
+  let buttonSaveText = 'Save';
+
   buttonAdd.addEventListener('click', function () {
     let task = inputTask.value;
     if (task !== '') {
@@ -31,16 +35,57 @@
     spanData.textContent =  dataCreate;
     div.appendChild(spanData);
 
-    const btn = document.createElement('button');
-    btn.className = 'btn btn-del';
-    btn.textContent = 'x';
-    div.appendChild(btn);
+    const btnUpdate = document.createElement('button');
+    btnUpdate.className = 'btn btn-update';
+    btnUpdate.textContent = buttonUpdateText;
+    div.appendChild(btnUpdate);
+
+    const btnDel = document.createElement('button');
+    btnDel.className = 'btn btn-del';
+    btnDel.textContent = buttonDelText;
+    div.appendChild(btnDel);
+
   }
   // del item on click
   list.addEventListener('click', ({target}) => {
-    if (target.tagName === 'BUTTON') {
+    const isButton = target.tagName === 'BUTTON';
+
+    // let updating = target.parentNode.parentNode;
+    // const firstSpan = target.parentNode.previousSibling;
+
+    if (isButton && target.textContent === buttonDelText) {
       list.removeChild(target.parentNode.parentNode);
+    } else if (isButton && target.textContent === buttonUpdateText) {
+      let updating = target.parentNode.parentNode;
+      const firstSpan = target.parentNode.previousSibling;
+      updating.removeChild(target.parentNode.previousSibling);
+      // firstSpan.className = 'hidden';
+
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.value = firstSpan.innerHTML;
+      updating.insertBefore(input, target.parentNode);
+      const btnSave = document.createElement('button');
+      btnSave.className = 'btn btn-save';
+      btnSave.textContent = buttonSaveText;
+      updating.insertBefore(btnSave, target.parentNode);
     }
+    // else if (isButton && target.textContent === buttonSaveText) {
+    //   // console.log(firstSpan.textContent);
+    //   // console.log(target.previousSibling.value);
+    //   // firstSpan.textContent = target.previousSibling.value;
+    //   // firstSpan.value = target.previousSibling.value;
+    //   // console.log(target.previousSibling.value);
+    //
+    //   // firstSpan.remove.className = 'hidden';
+    //   // this.appendChild(newSpan);
+    //   // target.parentNode.appendChild(newSpan);
+    //
+    //   let newSpan = document.createElement('span');
+    //   newSpan.textContent = target.previousSibling.value;
+    //   target.previousSibling.remove(target);
+    //   target.remove(target.previousSibling);
+    // }
   });
   // reverse todoList
   document.getElementById('reverse').onclick = function () {
