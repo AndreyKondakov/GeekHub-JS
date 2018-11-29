@@ -10,6 +10,13 @@
   let buttonUpdateText = 'Update';
   let buttonSaveText = 'Save';
 
+  var todos;
+  function toLocal() {
+    todos = list.innerHTML;
+    localStorage.setItem('todos', todos);
+  }
+
+
   buttonAdd.addEventListener('click', function () {
     let task = inputTask.value;
     if (task !== '') {
@@ -44,7 +51,7 @@
     btnDel.className = 'btn btn-del';
     btnDel.textContent = buttonDelText;
     div.appendChild(btnDel);
-
+    toLocal();
   }
   // del item on click
   list.addEventListener('click', ({target}) => {
@@ -75,6 +82,7 @@
         firstSpan.classList.remove('hidden');
         this.parentNode.removeChild(input);
         this.parentNode.removeChild(btnSave);
+        toLocal();
       }
     }
     // else if (target === this.parentNode) {
@@ -99,10 +107,11 @@
     // }
   });
 
-  // add checked 
+  // add checked
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
       ev.target.classList.toggle('checked');
+      toLocal();
     }
   }, false);
 
@@ -112,5 +121,9 @@
     for (let i = items.length -2; i >= 0; i--) {
       list.appendChild(items[i])
     }
+  };
+
+  if(localStorage.getItem('todos')){
+    list.innerHTML =localStorage.getItem('todos');
   }
 }());
