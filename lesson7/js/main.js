@@ -58,8 +58,8 @@
     } else if (isButton && target.textContent === buttonUpdateText) {
       let updating = target.parentNode.parentNode;
       const firstSpan = target.parentNode.previousSibling;
-      updating.removeChild(target.parentNode.previousSibling);
-      // firstSpan.className = 'hidden';
+      // updating.removeChild(target.parentNode.previousSibling);
+      firstSpan.className = 'hidden';
 
       const input = document.createElement('input');
       input.setAttribute('type', 'text');
@@ -69,6 +69,13 @@
       btnSave.className = 'btn btn-save';
       btnSave.textContent = buttonSaveText;
       updating.insertBefore(btnSave, target.parentNode);
+
+      btnSave.onclick = function () {
+        firstSpan.textContent = input.value;
+        firstSpan.classList.remove('hidden');
+        this.parentNode.removeChild(input);
+        this.parentNode.removeChild(btnSave);
+      }
     }
     // else if (isButton && target.textContent === buttonSaveText) {
     //   // console.log(firstSpan.textContent);
