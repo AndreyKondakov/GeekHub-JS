@@ -3,20 +3,22 @@
 class Character {
   constructor(name = '') {
     this.name = name;
-    this.walk = 20;
-    this.eat = 20;
-    this.sleep = 20;
-    this.play = 20;
+    this.walk = 50;
+    this.eat = 50;
+    this.sleep = 50;
+    this.play = 50;
 
     this.initCharacter();
 
     // делаю counter в конструкторе , что бы время было свое у каждого нового обьекта
     this.counter = setInterval(() => {
       // document.getElementsByClassName('character-name').style.color = "blue";  //for test
-      this.walk  = this.walk - 5;
-      console.log('test walk', this.walk);
 
-      // let life = document.getElementsByClassName('progress-life progress-bar')[0].style.width = `${this.walk} + %`;
+      this.walk  = this.walk - 5;
+      console.log('test walk 1', this.walk);
+
+      let life = document.querySelector('.progress-life .progress-bar');
+      life.style.width = this.walk + '%';
       // life.querySelector('span').style.width = `${this.walk} + %`;
 
       // let testik = document.getElementById('add-name').style.color = 'red';
@@ -145,6 +147,18 @@ class Character {
 new Character('за функцией');    // без такой записили или  var test = new Character() ничего не работает
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
