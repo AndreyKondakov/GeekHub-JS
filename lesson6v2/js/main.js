@@ -111,21 +111,23 @@ class Character {
 }
 
 
-const addName = document.getElementById('add-name');
-let inputName = addName.querySelector('input[type=text]');
-let buttonAdd = addName.querySelector('button');
+// const addName = document.getElementById('add-name');
+// let inputName = addName.querySelector('input[type=text]');
+// let buttonAdd = addName.querySelector('button');
+//
+//
+// buttonAdd.addEventListener('click', function () {
+//   let newName = inputName.value;
+//   if (newName !== '') {
+//      new Character(newName);
+//     // createItem(newName);
+//     console.log(this.name);
+//     inputName.value = '';
+//   }
+// });
 
-
-buttonAdd.addEventListener('click', function () {
-  let newName = inputName.value;
-  if (newName !== '') {
-     new Character(newName);
-    // createItem(newName);
-    console.log(this.name);
-    inputName.value = '';
-  }
-});
-
+let newtest = new Character('first');
+let newtett = new Character('second');
 
 
 
