@@ -1,0 +1,42 @@
+.game {
+  height: 98vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+
+.lets-play {
+  display: flex;
+  flex-wrap: wrap;
+  width: 220px;
+  height: 220px;
+}
+
+.numbers {
+  color: #fff;
+  font-weight: 600;
+  font-size: 25px;
+  margin: 2px;
+  background-color: #2fc150;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.numbers:active {
+  color: #4c59ff;
+  cursor: grabbing;
+}
+
+.white {
+  background-color: #fff;
+  cursor: none;
+}
