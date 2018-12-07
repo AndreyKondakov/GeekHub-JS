@@ -57,6 +57,8 @@ $( document ).ready(function() {
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
+
+    // e.dataTransfer.setData("text/html", e.target.id);
     // if (dragSrcEl == '') {
     //   this.classList.add('white')
     // }
@@ -72,7 +74,11 @@ $( document ).ready(function() {
       // Set the source column's HTML to the HTML of the columnwe dropped on.
       dragSrcEl.innerHTML = this.innerHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
+
+      // e.target.appendChild(document.getElementById('free'));
     }
+
+
     // if (dragSrcEl == '') {
     //   this.classList.add('white')
     // }
