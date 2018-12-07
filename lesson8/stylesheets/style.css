@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   background-color: aliceblue;
+  flex-direction: column;
 }
 
 
@@ -12,6 +13,7 @@
   flex-wrap: wrap;
   width: 220px;
   height: 220px;
+  margin: 10px;
 }
 
 .numbers {
@@ -37,6 +39,16 @@
 }
 
 .white {
-  background-color: #fff;
-  cursor: none;
+  background-color: #000540;
+  /*cursor: none;*/
+}
+
+.numbers.over {
+  border: 1px dashed #000;
+}
+
+.game-bar {
+  display: flex;
+  width: 210px;
+  justify-content: space-around;
 }
