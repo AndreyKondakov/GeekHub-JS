@@ -98,24 +98,8 @@ $( document ).ready(function() {
     while (divs.length) {
       parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
     }
-    // timer();
   });
 
-  // function timer()  {
-  //   $('#timer').text('00:00:00');
-  //   var this_date = new Date();
-  //   clearInterval(start_time_interval);
-  //   start_time_interval = setInterval(function(){
-  //     var new_date = new Date() - this_date;
-  //     var sec   = Math.abs(Math.floor(new_date/1000)%60); //sek
-  //     var min   = Math.abs(Math.floor(new_date/1000/60)%60); //min
-  //     var hours = Math.abs(Math.floor(new_date/1000/60/60)%24); //hours
-  //     if (sec.toString().length   == 1) sec   = '0' + sec;
-  //     if (min.toString().length   == 1) min   = '0' + min;
-  //     if (hours.toString().length == 1) hours = '0' + hours;
-  //     $('.timer').text(hours + ':' + min + ':' + sec);
-  //   },100);
-  // }
 
 
 
@@ -131,25 +115,23 @@ $( document ).ready(function() {
 
 
 
-// timer func { ..
-
-// if (timer) clearInterval(timer);
-// secs = 0;
-// document.getElementById('timer').innerHTML = secs + ' сек.';
-// timer = setInterval(
-//   function () {
-//     secs++;
-//     document.getElementById('timer').innerHTML = secs + ' сек.';
-//   },
-//   1000
-// );
 
 
 
 
 
-
-
-
-
-
+// function timer()  {
+//   $('#timer').text('00:00:00');
+//   var this_date = new Date();
+//   clearInterval(start_time_interval);
+//   start_time_interval = setInterval(function(){
+//     var new_date = new Date() - this_date;
+//     var sec   = Math.abs(Math.floor(new_date/1000)%60); //sek
+//     var min   = Math.abs(Math.floor(new_date/1000/60)%60); //min
+//     var hours = Math.abs(Math.floor(new_date/1000/60/60)%24); //hours
+//     if (sec.toString().length   == 1) sec   = '0' + sec;
+//     if (min.toString().length   == 1) min   = '0' + min;
+//     if (hours.toString().length == 1) hours = '0' + hours;
+//     $('.timer').text(hours + ':' + min + ':' + sec);
+//   },100);
+// }

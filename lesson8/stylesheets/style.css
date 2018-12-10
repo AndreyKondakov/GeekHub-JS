@@ -52,3 +52,64 @@
   width: 210px;
   justify-content: space-around;
 }
+
+
+/*  for del - test jquery */
+
+/*#panel {*/
+  /*background: #754c24;*/
+  /*height: 200px;*/
+  /*display: none;*/
+/*}*/
+
+/*.del {*/
+  /*width: 30px;*/
+  /*background-color: #0b97c4;*/
+/*}*/
+
+/*body {*/
+  /*height: 80vh;*/
+/*}*/
+/*#box {*/
+  /*background-color: #4c59ff;*/
+  /*width: 200px;*/
+  /*height: 200px;*/
+  /*position: relative;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+/*}*/
+
+.message_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 383px;
+}
+
+.message_list li {
+  padding: 0;
+  margin: 0;
+  background-color: #0b97c4;
+  border: 1px solid rosybrown;
+}
+
+.message_head {
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.message_head cite {
+  font-size: 100%;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.message_head .timestamp {
+  color: #666666;
+  font-size: 95%;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
