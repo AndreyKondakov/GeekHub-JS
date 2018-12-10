@@ -1,20 +1,70 @@
 $( document ).ready(function() {
-  console.log( "ready!" );
+  console.log("ready!");
+  var newGame = [];
+
+  $('#game-start').one('click', function () {
+    console.log('test');
+    // for (let i = 15; i>0; i--) {
+    //   $('.lets-play').append(`<span class="numbers">${i}</span>`);
+    //   newGame.push(i)
+    // }
+    // $('.lets-play').append(`<span class="numbers free"></span>`);
+    // newGame.push(0);
+    console.log(newGame)
+    refresh();
+  });
+
+  function compareRandom(a, b) {
+    return Math.random() - 0.5;
+  }
+
+  function refresh() {
+    newGame = [];
+    for (let i = 15; i > 0; i--) {
+      newGame.push(i)
+    }
+    newGame.sort(compareRandom);
+    console.log(newGame);
+    $('.lets-play').empty();
+    for (let i = 0; i < newGame.length; i++) {
+      $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
+    }
+    $('.lets-play').append(`<span class="numbers free"></span>`);
+  };
+
+
+  $('#refresh').click(function () {
+//     function compareRandom(a, b) {
+//       return Math.random() - 0.5;
+//     }
+//     newGame.sort(compareRandom);
+//     console.log(newGame);
+//     $('.lets-play').empty();
+//     for (let i = 15; i>0; i--) {
+//       $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
+//     }
+//     $('.lets-play').append(`<span class="numbers free"></span>`);
+//   })
+    refresh();
+});
+
 
   function handleDragOver(e) {
     if (e.preventDefault) {
       e.preventDefault(); // Necessary. Allows us to drop.
     }
-  //
+    //
     e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
 
     return false;
   }
+
   //
   function handleDragEnter(e) {
     // this / e.target is the current hover target.
     this.classList.add('over');
   }
+
   //
   function handleDragLeave(e) {
     this.classList.remove('over');  // this / e.target is previous target element.
@@ -38,7 +88,7 @@ $( document ).ready(function() {
   }
 
   var cols = document.querySelectorAll('.lets-play .numbers');
-  [].forEach.call(cols, function(col) {
+  [].forEach.call(cols, function (col) {
     col.addEventListener('dragstart', handleDragStart, false);
     col.addEventListener('dragenter', handleDragEnter, false);
     col.addEventListener('dragover', handleDragOver, false);
@@ -85,41 +135,33 @@ $( document ).ready(function() {
     return false;
   }
 
+});
+
 
   // if ($('lets-play span').length == 0) {
   //   console.log('test');
   //   this.className('white')
   // }
 
-  $('#refresh').click( function () {
-    console.log('working click!!!');
-    var parent = $(".lets-play");
-    var divs = parent.children();
-    while (divs.length) {
-      parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
-    }
-    // timer();
-  });
-
-  // function timer()  {
-  //   $('#timer').text('00:00:00');
-  //   var this_date = new Date();
-  //   clearInterval(start_time_interval);
-  //   start_time_interval = setInterval(function(){
-  //     var new_date = new Date() - this_date;
-  //     var sec   = Math.abs(Math.floor(new_date/1000)%60); //sek
-  //     var min   = Math.abs(Math.floor(new_date/1000/60)%60); //min
-  //     var hours = Math.abs(Math.floor(new_date/1000/60/60)%24); //hours
-  //     if (sec.toString().length   == 1) sec   = '0' + sec;
-  //     if (min.toString().length   == 1) min   = '0' + min;
-  //     if (hours.toString().length == 1) hours = '0' + hours;
-  //     $('.timer').text(hours + ':' + min + ':' + sec);
-  //   },100);
-  // }
+  // sort div
+  // $('#refresh').click( function refreshGame() {
+  //   console.log('working click!!!');
+  //   var parent = $(".lets-play");
+  //   var divs = parent.children();
+  //   while (divs.length) {
+  //     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+  //   }
+  // });
 
 
 
-});
+
+
+// let btnStart = document.getElementById('#game-start');
+// btnStart.addEventListener('click', function () {
+//   console.log('test');
+// });
+//
 
 
 
@@ -131,25 +173,49 @@ $( document ).ready(function() {
 
 
 
-// timer func { ..
-
-// if (timer) clearInterval(timer);
-// secs = 0;
-// document.getElementById('timer').innerHTML = secs + ' сек.';
-// timer = setInterval(
-//   function () {
-//     secs++;
-//     document.getElementById('timer').innerHTML = secs + ' сек.';
-//   },
-//   1000
-// );
-
-
-
-
-
+// function timer()  {
+//   $('#timer').text('00:00:00');
+//   var this_date = new Date();
+//   clearInterval(start_time_interval);
+//   start_time_interval = setInterval(function(){
+//     var new_date = new Date() - this_date;
+//     var sec   = Math.abs(Math.floor(new_date/1000)%60); //sek
+//     var min   = Math.abs(Math.floor(new_date/1000/60)%60); //min
+//     var hours = Math.abs(Math.floor(new_date/1000/60/60)%24); //hours
+//     if (sec.toString().length   == 1) sec   = '0' + sec;
+//     if (min.toString().length   == 1) min   = '0' + min;
+//     if (hours.toString().length == 1) hours = '0' + hours;
+//     $('.timer').text(hours + ':' + min + ':' + sec);
+//   },100);
+// }
 
 
+
+//
+// $('#game-start').one('click', function () {
+//   console.log('test');
+//   for (let i = 15; i>0; i--) {
+//     $('.lets-play').append(`<span class="numbers">${i}</span>`);
+//     newGame.push(i)
+//   }
+//   $('.lets-play').append(`<span class="numbers free"></span>`);
+//   newGame.push(0);
+//   console.log(newGame)
+// });
+//
+//
+// $('#refresh').click(function () {
+//   function compareRandom(a, b) {
+//     return Math.random() - 0.5;
+//   }
+//   newGame.sort(compareRandom);
+//   console.log(newGame);
+//   $('.lets-play').empty();
+//   for (let i = 15; i>0; i--) {
+//     $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
+//   }
+//   $('.lets-play').append(`<span class="numbers free"></span>`);
+// })
 
 
 
