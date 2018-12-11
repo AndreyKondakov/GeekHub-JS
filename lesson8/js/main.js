@@ -22,11 +22,40 @@ $( document ).ready(function() {
     }
     $('.lets-play').append(`<span class="numbers free">0</span>`);
     $('.lets-play').children().attr('draggable', 'true');
+
+    // $('.lets-play').children().on('dragstart', handleDragStart());
+    // $('.lets-play').children().on('dragenter', handleDragEnter());
+    // $('.lets-play').children().on('dragover', handleDragOver());
+    // $('.lets-play').children().on('dragleave', handleDragLeave());
+    // $('.lets-play').children().on('drop', handleDrop());
+    // $('.lets-play').children().on('dragend', handleDragEnd());
+
+    // $('.lets-play').children().on('dragstart', function handleDragStart(e) {
+    //   // Target (this) element is the source node.
+    //   alert('test');
+    //
+    //   this.style.opacity = '0.7';
+    //   console.log('start');
+    //
+    //   dragSrcEl = this;
+    //
+    //   e.dataTransfer.effectAllowed = 'move';
+    //   e.dataTransfer.setData('text/html', this.innerHTML);
+    // });
+
+    // addDraggableEvents(($('.lets-play').children()));
+
   };
 
   $('#refresh').click(function () {
     refresh();
   });
+
+
+
+
+
+
 
   function addDraggableEvents(item) {
     item.addEventListener('dragstart', handleDragStart);
@@ -53,9 +82,9 @@ $( document ).ready(function() {
   var dragSrcEl = null;
 
   function handleDragStart(e) {
+    console.log('start');
     // Target (this) element is the source node.
     this.style.opacity = '0.7';
-    console.log('start');
 
     dragSrcEl = this;
 
