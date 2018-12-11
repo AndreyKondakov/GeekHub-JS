@@ -165,7 +165,6 @@ new Character('за функцией');    // без такой записили
 
 
 
-
 //
 // let ted = 'ted';
 // var test = new Character(`${ted}`);
