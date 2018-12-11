@@ -13,7 +13,7 @@
 .progress span{
   content: '';
   position: absolute; /* Абсолютное позиционирование */
-  height: 18px; width: 50%;
+  height: 18px; width: 100%;
   transition: width 1s;
   background: #5bc1fe; /* Для старых браузеров */
   background: -moz-linear-gradient(top, #5bc1fe, #018ef2 50%, #57befd); /* Fx 3.6+ */
