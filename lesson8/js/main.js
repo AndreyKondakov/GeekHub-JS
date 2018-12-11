@@ -1,22 +1,14 @@
 $( document ).ready(function() {
-  console.log("ready!");
-  var newGame = [];
+  let newGame = [];
 
   $('#game-start').one('click', function () {
-    console.log('test');
-    // for (let i = 15; i>0; i--) {
-    //   $('.lets-play').append(`<span class="numbers">${i}</span>`);
-    //   newGame.push(i)
-    // }
-    // $('.lets-play').append(`<span class="numbers free"></span>`);
-    // newGame.push(0);
-    console.log(newGame)
     refresh();
   });
 
+
   function compareRandom(a, b) {
     return Math.random() - 0.5;
-  }
+  }; // sort numbers
 
   function refresh() {
     newGame = [];
@@ -24,29 +16,17 @@ $( document ).ready(function() {
       newGame.push(i)
     }
     newGame.sort(compareRandom);
-    console.log(newGame);
     $('.lets-play').empty();
     for (let i = 0; i < newGame.length; i++) {
       $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
     }
     $('.lets-play').append(`<span class="numbers free"></span>`);
+    $('.lets-play').children().attr('draggable', 'true');
   };
 
-
   $('#refresh').click(function () {
-//     function compareRandom(a, b) {
-//       return Math.random() - 0.5;
-//     }
-//     newGame.sort(compareRandom);
-//     console.log(newGame);
-//     $('.lets-play').empty();
-//     for (let i = 15; i>0; i--) {
-//       $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
-//     }
-//     $('.lets-play').append(`<span class="numbers free"></span>`);
-//   })
     refresh();
-});
+  });
 
 
   function handleDragOver(e) {
@@ -55,7 +35,6 @@ $( document ).ready(function() {
     }
     //
     e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-
     return false;
   }
 
@@ -63,22 +42,12 @@ $( document ).ready(function() {
   function handleDragEnter(e) {
     // this / e.target is the current hover target.
     this.classList.add('over');
+    console.log('enter');
   }
-
   //
   function handleDragLeave(e) {
     this.classList.remove('over');  // this / e.target is previous target element.
   }
-
-
-  // function handleDrop(e) {
-  //   // this / e.target is current target element.
-  //   if (e.stopPropagation) {
-  //     e.stopPropagation(); // stops the browser from redirecting.
-  //   }
-  //   // See the section on the DataTransfer object.
-  //   return false;
-  // }
 
   function handleDragEnd(e) {
     // this/e.target is the source node.
@@ -102,16 +71,12 @@ $( document ).ready(function() {
   function handleDragStart(e) {
     // Target (this) element is the source node.
     this.style.opacity = '0.7';
+    console.log('start');
 
     dragSrcEl = this;
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
-
-    // e.dataTransfer.setData("text/html", e.target.id);
-    // if (dragSrcEl == '') {
-    //   this.classList.add('white')
-    // }
   }
 
   function handleDrop(e) {
@@ -124,44 +89,12 @@ $( document ).ready(function() {
       // Set the source column's HTML to the HTML of the columnwe dropped on.
       dragSrcEl.innerHTML = this.innerHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
-
-      // e.target.appendChild(document.getElementById('free'));
     }
-
-
-    // if (dragSrcEl == '') {
-    //   this.classList.add('white')
-    // }
     return false;
   }
 
 });
 
-
-  // if ($('lets-play span').length == 0) {
-  //   console.log('test');
-  //   this.className('white')
-  // }
-
-  // sort div
-  // $('#refresh').click( function refreshGame() {
-  //   console.log('working click!!!');
-  //   var parent = $(".lets-play");
-  //   var divs = parent.children();
-  //   while (divs.length) {
-  //     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
-  //   }
-  // });
-
-
-
-
-
-// let btnStart = document.getElementById('#game-start');
-// btnStart.addEventListener('click', function () {
-//   console.log('test');
-// });
-//
 
 
 
@@ -191,6 +124,13 @@ $( document ).ready(function() {
 
 
 
+
+
+
+
+
+
+
 //
 // $('#game-start').one('click', function () {
 //   console.log('test');
@@ -216,6 +156,23 @@ $( document ).ready(function() {
 //   }
 //   $('.lets-play').append(`<span class="numbers free"></span>`);
 // })
+
+
+
+
+
+
+
+
+// sort items
+// $('#refresh').click( function refreshGame() {
+//   console.log('working click!!!');
+//   var parent = $(".lets-play");
+//   var divs = parent.children();
+//   while (divs.length) {
+//     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+//   }
+// });
 
 
 

@@ -52,3 +52,7 @@
   width: 210px;
   justify-content: space-around;
 }
+
+.numbers.over {
+  border: 2px dashed #000;
+}
