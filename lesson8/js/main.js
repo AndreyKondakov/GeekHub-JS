@@ -20,7 +20,7 @@ $( document ).ready(function() {
     for (let i = 0; i < newGame.length; i++) {
       $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
     }
-    $('.lets-play').append(`<span class="numbers free"></span>`);
+    $('.lets-play').append(`<span class="numbers free">0</span>`);
     $('.lets-play').children().attr('draggable', 'true');
   };
 
@@ -28,33 +28,17 @@ $( document ).ready(function() {
     refresh();
   });
 
-
-  function handleDragOver(e) {
-    if (e.preventDefault) {
-      e.preventDefault(); // Necessary. Allows us to drop.
-    }
-    //
-    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-    return false;
-  }
-
-  //
-  function handleDragEnter(e) {
-    // this / e.target is the current hover target.
-    this.classList.add('over');
-    console.log('enter');
+  function addDraggableEvents(item) {
+    item.addEventListener('dragstart', handleDragStart);
+    item.addEventListener('dragenter', handleDragEnter);
+    item.addEventListener('dragover', handleDragOver);
+    item.addEventListener('dragleave', handleDragLeave);
+    item.addEventListener('drop', handleDrop);
+    item.addEventListener('dragend', handleDragEnd);
   }
   //
-  function handleDragLeave(e) {
-    this.classList.remove('over');  // this / e.target is previous target element.
-  }
+  // addDraggableEvents(newGame);
 
-  function handleDragEnd(e) {
-    // this/e.target is the source node.
-    [].forEach.call(cols, function (col) {
-      col.classList.remove('over');
-    });
-  }
 
   var cols = document.querySelectorAll('.lets-play .numbers');
   [].forEach.call(cols, function (col) {
@@ -91,6 +75,33 @@ $( document ).ready(function() {
       this.innerHTML = e.dataTransfer.getData('text/html');
     }
     return false;
+  }
+
+  function handleDragOver(e) {
+    if (e.preventDefault) {
+      e.preventDefault(); // Necessary. Allows us to drop.
+    }
+    //
+    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+    return false;
+  }
+
+  //
+  function handleDragEnter(e) {
+    // this / e.target is the current hover target.
+    this.classList.add('over');
+    console.log('enter');
+  }
+  //
+  function handleDragLeave(e) {
+    this.classList.remove('over');  // this / e.target is previous target element.
+  }
+
+  function handleDragEnd(e) {
+    // this/e.target is the source node.
+    [].forEach.call(cols, function (col) {
+      col.classList.remove('over');
+    });
   }
 
 });
