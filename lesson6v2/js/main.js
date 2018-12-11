@@ -24,27 +24,21 @@ class Character {
       if ((this.walk <= 0) && (this.eat <= 0) && (this.sleep <= 0) && (this.play <= 0)) {  // before all value = 0
         clearTimeout(this.counter);
       }
-      console.log(this.name);
     }, 2000);
   }
 
   targetAction(item) {
     item.addEventListener('click', ({target}) => {
       if (target.tagName === 'BUTTON') {
-        console.log(target.className);
         if (target.className === 'action-walk') {
           this.walk = this.walk + 20;
-          console.log(target.className, '+20 = ', this.walk);
         } else if (target.className === 'action-eat') {
           this.eat = this.eat + 30;
-          console.log('eat +30 = ', this.eat)
         } else if (target.className === 'action-sleep') {
           this.sleep = this.sleep + 50;
-          console.log('this is the sleep +50 = ', this.sleep)
         } else if (target.className === 'action-play') {
           this.play = this.play + 15;
           this.sleep = this.sleep - 10;
-          console.log(this.walk, this.eat, this.sleep, this.play)
         }
       }
     })
@@ -71,7 +65,6 @@ buttonAdd.addEventListener('click', function () {
   let newName = inputName.value;
   if (newName !== '') {
     let person = new Character(newName);
-    console.log(this.name);
     inputName.value = '';
   }
 });
