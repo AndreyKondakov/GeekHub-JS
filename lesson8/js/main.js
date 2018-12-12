@@ -51,7 +51,7 @@ $( document ).ready(function() {
 
 
 
-    $('.lets-play').children().on('dragstart', function () {
+    // $('.lets-play').children().on('dragstart', function () {
       var cols = document.querySelectorAll('.lets-play .numbers');
       [].forEach.call(cols, function (col) {
         col.addEventListener('dragstart', handleDragStart, false);
@@ -112,7 +112,7 @@ $( document ).ready(function() {
           col.classList.remove('over');
         });
       }
-    });
+    // });
 
   };
 
@@ -128,14 +128,14 @@ $( document ).ready(function() {
 
   // let initEvent = $('.lets-play').children()
 
-  function addDraggableEvents(item) {
-    item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragenter', handleDragEnter);
-    item.addEventListener('dragover', handleDragOver);
-    item.addEventListener('dragleave', handleDragLeave);
-    item.addEventListener('drop', handleDrop);
-    item.addEventListener('dragend', handleDragEnd);
-  }
+  // function addDraggableEvents(item) {
+  //   item.addEventListener('dragstart', handleDragStart);
+  //   item.addEventListener('dragenter', handleDragEnter);
+  //   item.addEventListener('dragover', handleDragOver);
+  //   item.addEventListener('dragleave', handleDragLeave);
+  //   item.addEventListener('drop', handleDrop);
+  //   item.addEventListener('dragend', handleDragEnd);
+  // }
   //
   // addDraggableEvents(initEvent);
 
