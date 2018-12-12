@@ -19,7 +19,7 @@ $( document ).ready(function() {
     for (let i = 0; i < newGame.length; i++) {
       $('.lets-play').append(`<span class="numbers">${newGame[i]}</span>`);
     }
-    $('.lets-play').append(`<span class="numbers free">0</span>`);
+    $('.lets-play').append(`<span class="numbers free"> 0</span>`);
     $('.lets-play').children().attr('draggable', 'true');
 
     // $('.lets-play').children().on('dragstart', handleDragStart());
@@ -63,14 +63,25 @@ $( document ).ready(function() {
       });
 
       var dragSrcEl = null;
+      var dragFreeEl = null;
 
       function handleDragStart(e) {
-        console.log('start');
+        console.log('start', this.innerHTML);
+        console.log('start', this.classList[1]);
         // Target (this) element is the source node.
         this.style.opacity = '0.7';
         dragSrcEl = this;
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', this.innerHTML);
+
+        // if (this.innerHTML === '0') {
+        //   console.log('получилось');
+        //   dragFreeEl = this.classList[1];
+        //   this.classList.remove(dragFreeEl)
+        // }
+        dragFreeEl = this.classList[1];
+        this.classList.remove(dragFreeEl)
+
       }
 
       function handleDrop(e) {
@@ -84,6 +95,11 @@ $( document ).ready(function() {
           dragSrcEl.innerHTML = this.innerHTML;
           this.innerHTML = e.dataTransfer.getData('text/html');
         }
+        if (dragFreeEl == 'free') {
+          console.log(' yeaaa!')
+          this.classList.add(dragFreeEl);
+        }
+
         return false;
       }
 
@@ -100,6 +116,7 @@ $( document ).ready(function() {
         // this / e.target is the current hover target.
         this.classList.add('over');
         console.log('enter');
+
       }
       //
       function handleDragLeave(e) {
