@@ -5,7 +5,6 @@ $( document ).ready(function() {
     refresh();
   });
 
-
   function compareRandom(a, b) {
     return Math.random() - 0.5;
   }; // sort numbers
@@ -50,15 +49,84 @@ $( document ).ready(function() {
 
 
 
+
+
+    $('.lets-play').children().on('dragstart', function () {
+      var cols = document.querySelectorAll('.lets-play .numbers');
+      [].forEach.call(cols, function (col) {
+        col.addEventListener('dragstart', handleDragStart, false);
+        col.addEventListener('dragenter', handleDragEnter, false);
+        col.addEventListener('dragover', handleDragOver, false);
+        col.addEventListener('dragleave', handleDragLeave, false);
+        col.addEventListener('drop', handleDrop, false);
+        col.addEventListener('dragend', handleDragEnd, false);
+      });
+
+      var dragSrcEl = null;
+
+      function handleDragStart(e) {
+        console.log('start');
+        // Target (this) element is the source node.
+        this.style.opacity = '0.7';
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+      }
+
+      function handleDrop(e) {
+        // this/e.target is current target element.
+        if (e.stopPropagation) {
+          e.stopPropagation(); // Stops some browsers from redirecting.
+        }
+        // Don't do anything if dropping the same column we're dragging.
+        if (dragSrcEl != this) {
+          // Set the source column's HTML to the HTML of the columnwe dropped on.
+          dragSrcEl.innerHTML = this.innerHTML;
+          this.innerHTML = e.dataTransfer.getData('text/html');
+        }
+        return false;
+      }
+
+      function handleDragOver(e) {
+        if (e.preventDefault) {
+          e.preventDefault(); // Necessary. Allows us to drop.
+        }
+        //
+        e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+        return false;
+      }
+      //
+      function handleDragEnter(e) {
+        // this / e.target is the current hover target.
+        this.classList.add('over');
+        console.log('enter');
+      }
+      //
+      function handleDragLeave(e) {
+        this.classList.remove('over');  // this / e.target is previous target element.
+      }
+
+      function handleDragEnd(e) {
+        // this/e.target is the source node.
+        [].forEach.call(cols, function (col) {
+          col.classList.remove('over');
+        });
+      }
+    });
+
   };
+
+
+
+
+
+
 
   $('#refresh').click(function () {
     refresh();
   });
 
-
   // let initEvent = $('.lets-play').children()
-
 
   function addDraggableEvents(item) {
     item.addEventListener('dragstart', handleDragStart);
@@ -71,68 +139,68 @@ $( document ).ready(function() {
   //
   // addDraggableEvents(initEvent);
 
-  var cols = document.querySelectorAll('.lets-play .numbers');
-  [].forEach.call(cols, function (col) {
-    col.addEventListener('dragstart', handleDragStart, false);
-    col.addEventListener('dragenter', handleDragEnter, false);
-    col.addEventListener('dragover', handleDragOver, false);
-    col.addEventListener('dragleave', handleDragLeave, false);
-    col.addEventListener('drop', handleDrop, false);
-    col.addEventListener('dragend', handleDragEnd, false);
-  });
-
-  var dragSrcEl = null;
-
-  function handleDragStart(e) {
-    console.log('start');
-    // Target (this) element is the source node.
-    this.style.opacity = '0.7';
-
-    dragSrcEl = this;
-
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
-  }
-
-  function handleDrop(e) {
-    // this/e.target is current target element.
-    if (e.stopPropagation) {
-      e.stopPropagation(); // Stops some browsers from redirecting.
-    }
-    // Don't do anything if dropping the same column we're dragging.
-    if (dragSrcEl != this) {
-      // Set the source column's HTML to the HTML of the columnwe dropped on.
-      dragSrcEl.innerHTML = this.innerHTML;
-      this.innerHTML = e.dataTransfer.getData('text/html');
-    }
-    return false;
-  }
-
-  function handleDragOver(e) {
-    if (e.preventDefault) {
-      e.preventDefault(); // Necessary. Allows us to drop.
-    }
-    //
-    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-    return false;
-  }
+  // var cols = document.querySelectorAll('.lets-play .numbers');
+  // [].forEach.call(cols, function (col) {
+  //   col.addEventListener('dragstart', handleDragStart, false);
+  //   col.addEventListener('dragenter', handleDragEnter, false);
+  //   col.addEventListener('dragover', handleDragOver, false);
+  //   col.addEventListener('dragleave', handleDragLeave, false);
+  //   col.addEventListener('drop', handleDrop, false);
+  //   col.addEventListener('dragend', handleDragEnd, false);
+  // });
   //
-  function handleDragEnter(e) {
-    // this / e.target is the current hover target.
-    this.classList.add('over');
-    console.log('enter');
-  }
+  // var dragSrcEl = null;
   //
-  function handleDragLeave(e) {
-    this.classList.remove('over');  // this / e.target is previous target element.
-  }
-
-  function handleDragEnd(e) {
-    // this/e.target is the source node.
-    [].forEach.call(cols, function (col) {
-      col.classList.remove('over');
-    });
-  }
+  // function handleDragStart(e) {
+  //   console.log('start');
+  //   // Target (this) element is the source node.
+  //   this.style.opacity = '0.7';
+  //
+  //   dragSrcEl = this;
+  //
+  //   e.dataTransfer.effectAllowed = 'move';
+  //   e.dataTransfer.setData('text/html', this.innerHTML);
+  // }
+  //
+  // function handleDrop(e) {
+  //   // this/e.target is current target element.
+  //   if (e.stopPropagation) {
+  //     e.stopPropagation(); // Stops some browsers from redirecting.
+  //   }
+  //   // Don't do anything if dropping the same column we're dragging.
+  //   if (dragSrcEl != this) {
+  //     // Set the source column's HTML to the HTML of the columnwe dropped on.
+  //     dragSrcEl.innerHTML = this.innerHTML;
+  //     this.innerHTML = e.dataTransfer.getData('text/html');
+  //   }
+  //   return false;
+  // }
+  //
+  // function handleDragOver(e) {
+  //   if (e.preventDefault) {
+  //     e.preventDefault(); // Necessary. Allows us to drop.
+  //   }
+  //   //
+  //   e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+  //   return false;
+  // }
+  // //
+  // function handleDragEnter(e) {
+  //   // this / e.target is the current hover target.
+  //   this.classList.add('over');
+  //   console.log('enter');
+  // }
+  // //
+  // function handleDragLeave(e) {
+  //   this.classList.remove('over');  // this / e.target is previous target element.
+  // }
+  //
+  // function handleDragEnd(e) {
+  //   // this/e.target is the source node.
+  //   [].forEach.call(cols, function (col) {
+  //     col.classList.remove('over');
+  //   });
+  // }
 
 });
 
