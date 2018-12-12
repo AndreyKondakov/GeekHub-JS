@@ -30,12 +30,11 @@ $( document ).ready(function() {
     // $('.lets-play').children().on('drop', handleDrop());
     // $('.lets-play').children().on('dragend', handleDragEnd());
 
-    // $('.lets-play').children().on('dragstart', function handleDragStart(e) {
+    // $('.lets-play').children().on('click', function handleDragStart(e) {
     //   // Target (this) element is the source node.
-    //   alert('test');
+    //   console.log('test');
     //
     //   this.style.opacity = '0.7';
-    //   console.log('start');
     //
     //   dragSrcEl = this;
     //
@@ -45,6 +44,12 @@ $( document ).ready(function() {
 
     // addDraggableEvents(($('.lets-play').children()));
 
+
+    // let initEvent = $('.lets-play').children();
+    // addDraggableEvents(initEvent);
+
+
+
   };
 
   $('#refresh').click(function () {
@@ -52,9 +57,7 @@ $( document ).ready(function() {
   });
 
 
-
-
-
+  // let initEvent = $('.lets-play').children()
 
 
   function addDraggableEvents(item) {
@@ -66,8 +69,7 @@ $( document ).ready(function() {
     item.addEventListener('dragend', handleDragEnd);
   }
   //
-  // addDraggableEvents(newGame);
-
+  // addDraggableEvents(initEvent);
 
   var cols = document.querySelectorAll('.lets-play .numbers');
   [].forEach.call(cols, function (col) {
@@ -114,7 +116,6 @@ $( document ).ready(function() {
     e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
     return false;
   }
-
   //
   function handleDragEnter(e) {
     // this / e.target is the current hover target.
@@ -163,14 +164,6 @@ $( document ).ready(function() {
 // }
 
 
-
-
-
-
-
-
-
-
 //
 // $('#game-start').one('click', function () {
 //   console.log('test');
@@ -198,12 +191,6 @@ $( document ).ready(function() {
 // })
 
 
-
-
-
-
-
-
 // sort items
 // $('#refresh').click( function refreshGame() {
 //   console.log('working click!!!');
@@ -213,6 +200,3 @@ $( document ).ready(function() {
 //     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
 //   }
 // });
-
-
-
