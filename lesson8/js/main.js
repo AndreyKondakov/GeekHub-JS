@@ -79,9 +79,9 @@ $( document ).ready(function() {
         //   dragFreeEl = this.classList[1];
         //   this.classList.remove(dragFreeEl)
         // }
+        console.log('start');
         dragFreeEl = this.classList[1];
         this.classList.remove(dragFreeEl)
-
       }
 
       function handleDrop(e) {
@@ -91,12 +91,12 @@ $( document ).ready(function() {
         }
         // Don't do anything if dropping the same column we're dragging.
         if (dragSrcEl != this) {
-          // Set the source column's HTML to the HTML of the columnwe dropped on.
+          // Set the source column's HTML to the HTML of the column dropped on.
           dragSrcEl.innerHTML = this.innerHTML;
           this.innerHTML = e.dataTransfer.getData('text/html');
         }
         if (dragFreeEl == 'free') {
-          console.log(' yeaaa!')
+          console.log(' drop!');
           this.classList.add(dragFreeEl);
         }
 
@@ -107,6 +107,8 @@ $( document ).ready(function() {
         if (e.preventDefault) {
           e.preventDefault(); // Necessary. Allows us to drop.
         }
+        console.log('over');
+
         //
         e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
         return false;
@@ -125,6 +127,8 @@ $( document ).ready(function() {
 
       function handleDragEnd(e) {
         // this/e.target is the source node.
+        console.log('end');
+
         [].forEach.call(cols, function (col) {
           col.classList.remove('over');
         });
