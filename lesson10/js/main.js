@@ -36,10 +36,10 @@ function show(data) {
   return '<h2>Current Weather for '+ data.name + ', ' + data.sys.country +'</h2>' +
          '<h3><strong>Weather (погода)</strong>: ' + data.weather[0].main + '</h3>' +
          '<h3><strong>Description (описание)</strong>: <img src="http://openweathermap.org/img/w/'+data.weather[0].icon+'.png">' + data.weather[0].description + '</h3>' +
-         '<h3><strong>Temperature (температура)</strong>: ' + data.main.temp + '</h3>' +
-         '<h3><strong>Pressure (давление)</strong>: ' + data.main.pressure + '</h3>' +
-         '<h3><strong>Humidity (влажность)</strong>: ' + data.main.humidity + '</h3>' +
-         '<h3><strong>Wind speed (скорость ветра)</strong>: ' + data.wind.speed + '</h3>';
+         '<h3><strong>Temperature (температура)</strong>: ' + data.main.temp + '&deg;C</h3>' +
+         '<h3><strong>Pressure (давление)</strong>: ' + data.main.pressure + ' hPa</h3>' +
+         '<h3><strong>Humidity (влажность)</strong>: ' + data.main.humidity + '%</h3>' +
+         '<h3><strong>Wind speed (скорость ветра)</strong>: ' + data.wind.speed + ' m/s</h3>';
 }
 
 });
