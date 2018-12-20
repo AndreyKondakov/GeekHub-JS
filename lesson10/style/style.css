@@ -1,0 +1,12 @@
+#show {
+  /*border: solid 2px gold;*/
+  /*border-radius: 5px;*/
+  padding: 5px;
+  margin: 10px;
+  max-width: 500px;
+  text-align: center;
+}
+
+#show h3 {
+  font-weight: 400;
+}
