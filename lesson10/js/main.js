@@ -45,36 +45,66 @@ function show(data) {
 });
 
 
-// function setup() {
-//   var button = select('#getWeather');
-//   button.mousePressed(weatherAsk);
-//
-//   input = select('.your-city');
-// }
-//
-// function weatherAsk() {
-//   var url = API_PATH + input.value() + API_KEY + apiUnits;
-//
-// }
-// var url = API_PATH + input.value() + API_KEY + apiUnits;
+// only js
 
-/////////////////////
+(function () {
 
-// // 1. Создаём новый объект XMLHttpRequest
-// var xhr = new XMLHttpRequest();
-//
-// // 2. Конфигурируем его: GET-запрос на URL
-// xhr.open('GET', url, false);
-//
-// // 3. Отсылаем запрос
-// xhr.send();
+  const API_PATH = 'http://api.openweathermap.org/data/2.5/weather?q=';
+  const API_KEY = "&APPID=524cbd8746782d97d6a1135c027a7bbb";
+  var apiUnits = '&units=metric';
 
-// 4. Если код ответа сервера не 200, то это ошибка
-// if (xhr.status != 200) {
-//   // обработать ошибку
-//   console.log( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
-// } else {
-//   // вывести результат
-//   console.log( xhr.responseText ); // responseText -- текст ответа.
-// }
-///////////////////////////////
+  var buttonForJs = document.getElementById('getWeather2');
+
+  buttonForJs.addEventListener('click', function(e) {
+    e.preventDefault();
+    var show2 = document.getElementById('show2');
+    show2.innerHTML = '';
+
+    let getCity = document.getElementById('your-city2').value;
+
+    // 1. Создаём новый объект XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    // 2. Конфигурируем его: GET-запрос на URL
+    xhr.open('GET', API_PATH + getCity + API_KEY + apiUnits, false);
+    // 3. Отсылаем запрос
+    xhr.send();
+    // 4. Если код ответа сервера не 200, то это ошибка
+    if (xhr.status != 200) {
+      // обработать ошибку
+      console.log( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
+      console.log('error')
+    } else {
+      // вывести результат
+      console.log( xhr.responseText ); // responseText -- текст ответа.
+      console.log('no error');
+
+      var parseJson = JSON.parse(xhr.responseText);
+      show(parseJson);
+    }
+  });
+
+  function show(data) {
+    var showWeather = document.getElementById('show2');
+
+    var nameInfo = document.createElement('p');
+    var weatherInfo = document.createElement('p');
+    var tempInfo = document.createElement('p');
+    var pressureInfo = document.createElement('p');
+    var humidityInfo = document.createElement('p');
+    var windSpeedInfo = document.createElement('p');
+
+    nameInfo.innerHTML = 'Weather (погода): ' + data.name + ', ' + data.sys.country;
+    weatherInfo.innerHTML = 'Description (описание): ' + data.weather[0].main;
+    tempInfo.innerHTML = 'Temperature (температура): ' + data.main.temp + '&deg;C';
+    pressureInfo.innerHTML = 'Pressure (давление): ' + data.main.pressure + ' hPa';
+    humidityInfo.innerHTML = 'Humidity (влажность): ' + data.main.humidity + '%';
+    windSpeedInfo.innerHTML = 'Wind speed (скорость ветра): ' + data.wind.speed + ' m/s';
+
+    showWeather.appendChild(nameInfo);
+    showWeather.appendChild(weatherInfo);
+    showWeather.appendChild(tempInfo);
+    showWeather.appendChild(pressureInfo);
+    showWeather.appendChild(humidityInfo);
+    showWeather.appendChild(windSpeedInfo);
+  }
+}());
