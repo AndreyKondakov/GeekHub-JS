@@ -40,13 +40,10 @@ function show(data) {
          '<h3><strong>Pressure (давление)</strong>: ' + data.main.pressure + ' hPa</h3>' +
          '<h3><strong>Humidity (влажность)</strong>: ' + data.main.humidity + '%</h3>' +
          '<h3><strong>Wind speed (скорость ветра)</strong>: ' + data.wind.speed + ' m/s</h3>';
-}
-
+  }
 });
 
-
 // only js
-
 (function () {
 
   const API_PATH = 'http://api.openweathermap.org/data/2.5/weather?q=';

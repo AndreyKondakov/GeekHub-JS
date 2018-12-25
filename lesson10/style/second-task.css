@@ -1,0 +1,44 @@
+.quotes-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  width: 50%;
+  min-height: 300px;
+  text-align: center;
+}
+
+#quotes-text {
+  background-color: aliceblue;
+  padding: 15px;
+  justify-items: stretch;
+  align-self: stretch;
+  justify-self: stretch;
+  align-content: stretch;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#quotes-text p {
+  font-size: 20px;
+  width: 80%;
+}
+
+#quotes-nav {
+  background-color: antiquewhite;
+  padding: 15px;
+}
+
+#quote-next {
+  padding: 15px;
+  border-radius: 100px 20px;
+  border: none;
+  background-color: burlywood;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
