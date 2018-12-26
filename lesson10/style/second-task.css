@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: auto;
+  margin: 10px auto;
   width: 50%;
   min-height: 300px;
   text-align: center;
 }
 
-#quotes-text {
+#quotes-text, #quotes-text2 {
   background-color: aliceblue;
   padding: 15px;
   justify-items: stretch;
@@ -22,17 +22,17 @@
   align-items: center;
 }
 
-#quotes-text p {
+#quotes-text p , #quotes-text2 p {
   font-size: 20px;
   width: 80%;
 }
 
-#quotes-nav {
+#quotes-nav , #quotes-nav2 {
   background-color: antiquewhite;
   padding: 15px;
 }
 
-#quote-next {
+#quote-next , #quote-next2 {
   padding: 15px;
   border-radius: 100px 20px;
   border: none;
