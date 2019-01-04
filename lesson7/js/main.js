@@ -16,7 +16,6 @@
     localStorage.setItem('saveTodo', saveTodo);
   }
 
-
   buttonAdd.addEventListener('click', function () {
     let task = inputTask.value;
     if (task !== '') {
@@ -57,9 +56,6 @@
   list.addEventListener('click', ({target}) => {
     const isButton = target.tagName === 'BUTTON';
 
-    // let updating = target.parentNode.parentNode;
-    // const firstSpan = target.parentNode.previousSibling;
-
     if (isButton && target.textContent === buttonDelText) {
       list.removeChild(target.parentNode.parentNode);
       toLocal();
@@ -86,26 +82,6 @@
         toLocal();
       }
     }
-    // else if (target === this.parentNode) {
-    //   target.className.toggle('checked');
-    // }
-
-    // else if (isButton && target.textContent === buttonSaveText) {
-    //   // console.log(firstSpan.textContent);
-    //   // console.log(target.previousSibling.value);
-    //   // firstSpan.textContent = target.previousSibling.value;
-    //   // firstSpan.value = target.previousSibling.value;
-    //   // console.log(target.previousSibling.value);
-    //
-    //   // firstSpan.remove.className = 'hidden';
-    //   // this.appendChild(newSpan);
-    //   // target.parentNode.appendChild(newSpan);
-    //
-    //   let newSpan = document.createElement('span');
-    //   newSpan.textContent = target.previousSibling.value;
-    //   target.previousSibling.remove(target);
-    //   target.remove(target.previousSibling);
-    // }
   });
 
   // add checked
@@ -128,3 +104,4 @@
     list.innerHTML =localStorage.getItem('saveTodo');
   }
 }());
+
