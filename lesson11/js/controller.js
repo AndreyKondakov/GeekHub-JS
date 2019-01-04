@@ -8,13 +8,11 @@ var controller = {
       if (inputNote.value !== '') {
         inputNote.value = '';
       }
-
-      // view.showNumber(value);
-
       model.createItem(value);
     }
-
   }
+
+
 
 
 
