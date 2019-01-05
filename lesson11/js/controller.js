@@ -16,6 +16,4 @@ var controller = {
       return model.update(target)
   }
 
-
-
 };

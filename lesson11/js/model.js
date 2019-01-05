@@ -19,9 +19,7 @@ var model = {
     nId++;
 
     localStorage.setItem(tdMask + nId, text);
-
     item.setAttribute('dataItemId', tdMask + nId);
-
     // to local storage --- END ----------------------------
 
     const span = document.createElement('span');
@@ -54,7 +52,6 @@ var model = {
     btnDel.className = 'btn btn-del';
     btnDel.textContent = buttonDelText;
     div.appendChild(btnDel);
-    // toLocal();
   },
 
   update: function (target) {
@@ -65,7 +62,6 @@ var model = {
     if (isButton && target.textContent === buttonUpdateText) {
       let updating = target.parentNode.parentNode;
       const firstSpan = target.parentNode.previousSibling;
-      // updating.removeChild(target.parentNode.previousSibling);
       firstSpan.className = 'hidden';
 
       const input = document.createElement('input');
@@ -82,42 +78,34 @@ var model = {
         firstSpan.classList.remove('hidden');
         this.parentNode.removeChild(input);
         this.parentNode.removeChild(btnSave);
-        // toLocal();
       }
     }
   },
 
-  showAllNote: function () {
+  lsAllNote: function () {
     var lsLen = localStorage.length;
     if (lsLen > 0) {
       var list = document.getElementById('todoList');
-      // if (list.firstChild === null ) {
-        for(var i = 0; i < lsLen; i++) {
-          var key = localStorage.key(i);
+      for(var i = 0; i < lsLen; i++) {
+        var key = localStorage.key(i);
 
-          // this.createItem(localStorage.key(i))    // создает лишнюю кописю даных в Local storage
+        const item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.setAttribute('dataItemId', localStorage.key(i));
 
-          const item = document.createElement('li');
-          item.className = 'list-group-item';
+        const span = document.createElement('span');
+        span.textContent = localStorage.getItem(localStorage.key(i));
+        item.appendChild(span);
+        list.appendChild(item);
 
-          item.setAttribute('dataItemId', localStorage.key(i));
-
-          const span = document.createElement('span');
-          span.textContent = localStorage.getItem(localStorage.key(i));
-          item.appendChild(span);
-          list.appendChild(item);
-
-          this.domPartOfNote(item);
-
-        // }
+        this.domPartOfNote(item);
       }
     }
+  },
+  
+  lsDel: function (item) {
+    var thisNote = item.getAttribute('dataItemId');
+    localStorage.removeItem(thisNote);
   }
-
-
-
-
-
-
 
 };

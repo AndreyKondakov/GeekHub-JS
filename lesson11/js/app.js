@@ -20,19 +20,11 @@
 
       view.updateNote();
 
-      model.showAllNote();
+      model.lsAllNote();
 
     }
   };
 
   app.init();
-
-
-
-
-
-  // if(localStorage.getItem('saveTodo')){
-  //   list.innerHTML =localStorage.getItem('saveTodo');
-  // }
 
 }());
