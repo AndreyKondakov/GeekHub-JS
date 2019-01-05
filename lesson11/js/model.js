@@ -3,10 +3,6 @@ var model = {
     createItem: function (text) {
     var list = document.getElementById('todoList');
 
-    let buttonDelText = 'x';
-    let buttonUpdateText = 'Update';
-    // let buttonSaveText = 'Save';
-
     const item = document.createElement('li');
     item.className = 'list-group-item';
 
@@ -33,6 +29,14 @@ var model = {
     item.appendChild(span);
     list.appendChild(item);
 
+    this.domPartOfNote(item);
+  },
+
+  domPartOfNote: function (item) {
+    let buttonDelText = 'x';
+    let buttonUpdateText = 'Update';
+    // let buttonSaveText = 'Save';
+
     const div = document.createElement('div');
     item.appendChild(div);
 
@@ -51,7 +55,6 @@ var model = {
     btnDel.textContent = buttonDelText;
     div.appendChild(btnDel);
     // toLocal();
-
   },
 
   update: function (target) {
@@ -87,13 +90,26 @@ var model = {
   showAllNote: function () {
     var lsLen = localStorage.length;
     if (lsLen > 0) {
-      var list = document.getElementById('todoList').firstChild;
-      for(var i = 0; i < lsLen; i++) {
-        var key = localStorage.key(i);
-        if (list === null ) {
+      var list = document.getElementById('todoList');
+      // if (list.firstChild === null ) {
+        for(var i = 0; i < lsLen; i++) {
+          var key = localStorage.key(i);
+
           // this.createItem(localStorage.key(i))    // создает лишнюю кописю даных в Local storage
 
-        }
+          const item = document.createElement('li');
+          item.className = 'list-group-item';
+
+          item.setAttribute('dataItemId', localStorage.key(i));
+
+          const span = document.createElement('span');
+          span.textContent = localStorage.getItem(localStorage.key(i));
+          item.appendChild(span);
+          list.appendChild(item);
+
+          this.domPartOfNote(item);
+
+        // }
       }
     }
   }
