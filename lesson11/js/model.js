@@ -5,7 +5,7 @@ var model = {
 
   let buttonDelText = 'x';
   let buttonUpdateText = 'Update';
-  let buttonSaveText = 'Save';
+  // let buttonSaveText = 'Save';
 
   const item = document.createElement('li');
   item.className = 'list-group-item';
