@@ -78,6 +78,10 @@ var model = {
         firstSpan.classList.remove('hidden');
         this.parentNode.removeChild(input);
         this.parentNode.removeChild(btnSave);
+
+        let li = target.parentNode.parentNode;
+        let itemId = li.getAttribute('dataItemId');
+        localStorage[itemId] = input.value;
       }
     }
   },
