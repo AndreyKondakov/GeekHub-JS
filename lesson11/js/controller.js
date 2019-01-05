@@ -10,11 +10,11 @@ var controller = {
       }
       model.createItem(value);
     }
+  },
+
+  updateNote: function (target) {
+      return model.update(target)
   }
-
-
-
-
 
 
 
