@@ -99,7 +99,6 @@
     for (let i = items.length -2; i >= 0; i--) {
       list.appendChild(items[i])
     }
-    // toLocal();
   };
 
   if(localStorage.getItem('saveTodo')){

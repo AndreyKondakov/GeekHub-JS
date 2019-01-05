@@ -1,8 +1,7 @@
 var model = {
 
     createItem: function (text) {
-    var list = document.getElementById('todoList');
-
+    const list = document.getElementById('todoList');
     const item = document.createElement('li');
     item.className = 'list-group-item';
 

@@ -10,7 +10,6 @@ var view = {
       if (isButton && target.textContent === buttonDelText) {
         model.lsDel(target.parentNode.parentNode);
         list.removeChild(target.parentNode.parentNode);
-        // toLocal();
       }
     });
   },

@@ -22,6 +22,8 @@
 
       model.lsAllNote();
 
+      var btnReverse = document.getElementById('reverse');
+      btnReverse.onclick = controller.reverseNotes;
     }
   };
 
