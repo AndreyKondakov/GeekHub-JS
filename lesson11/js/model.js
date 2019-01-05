@@ -72,6 +72,9 @@ var model = {
       btnSave.textContent = buttonSaveText;
       updating.insertBefore(btnSave, target.parentNode);
 
+      var btnUpdate = target;
+      btnUpdate.disabled = true;
+
       btnSave.onclick = function () {
         firstSpan.textContent = input.value;
         firstSpan.classList.remove('hidden');
@@ -81,6 +84,8 @@ var model = {
         let li = target.parentNode.parentNode;
         let itemId = li.getAttribute('dataItemId');
         localStorage[itemId] = input.value;
+
+        btnUpdate.disabled = false;
       }
     }
   },
