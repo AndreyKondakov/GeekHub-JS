@@ -10,6 +10,24 @@ var model = {
     const item = document.createElement('li');
     item.className = 'list-group-item';
 
+    // to local storage ---- START ----///--------------------
+    var tdMask = 'td_';
+    var nId = 0;
+
+    list.querySelectorAll('li').forEach(function(el) {
+      let count = el.getAttribute('dataItemId').slice(3);
+      if (count > nId) {
+        nId = count
+      }
+    });
+    nId++;
+
+    localStorage.setItem(tdMask + nId, text);
+
+    item.setAttribute('dataItemId', tdMask + nId);
+
+    // to local storage --- END ----------------------------
+
     const span = document.createElement('span');
     span.textContent = text;
     item.appendChild(span);
@@ -33,6 +51,7 @@ var model = {
     btnDel.textContent = buttonDelText;
     div.appendChild(btnDel);
     // toLocal();
+
   },
 
   update: function (target) {
@@ -61,6 +80,20 @@ var model = {
         this.parentNode.removeChild(input);
         this.parentNode.removeChild(btnSave);
         // toLocal();
+      }
+    }
+  },
+
+  showAllNote: function () {
+    var lsLen = localStorage.length;
+    if (lsLen > 0) {
+      var list = document.getElementById('todoList').firstChild;
+      for(var i = 0; i < lsLen; i++) {
+        var key = localStorage.key(i);
+        if (list === null ) {
+          // this.createItem(localStorage.key(i))    // создает лишнюю кописю даных в Local storage
+
+        }
       }
     }
   }

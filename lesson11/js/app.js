@@ -20,6 +20,8 @@
 
       view.updateNote();
 
+      // model.showAllNote();
+
     }
   };
 
