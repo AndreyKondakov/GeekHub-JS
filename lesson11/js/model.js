@@ -3,7 +3,7 @@ var model = {
     createItem: function (text) {
     const list = document.getElementById('todoList');
     const item = document.createElement('li');
-    item.className = 'list-group-item';
+    item.className = 'list-group-item draggable';
 
     // to local storage ---- START ----///--------------------
     var tdMask = 'td_';
@@ -21,6 +21,10 @@ var model = {
     item.setAttribute('dataItemId', tdMask + nId);
     // to local storage --- END ----------------------------
 
+    var attr = document.createAttribute('draggable');
+    attr.value = 'true';
+    item.setAttributeNode(attr);
+
     const span = document.createElement('span');
     span.textContent = text;
     item.appendChild(span);
@@ -33,6 +37,9 @@ var model = {
     let buttonDelText = 'x';
     let buttonUpdateText = 'Update';
     // let buttonSaveText = 'Save';
+
+    // addEventsDragAndDrop(item);
+    this.dragAndDrop(item);
 
     const div = document.createElement('div');
     item.appendChild(div);
@@ -95,14 +102,17 @@ var model = {
     if (lsLen > 0) {
       var list = document.getElementById('todoList');
       for(var i = 0; i < lsLen; i++) {
-        var key = localStorage.key(i);
+        let key = localStorage.key(i);
 
         const item = document.createElement('li');
         item.className = 'list-group-item';
-        item.setAttribute('dataItemId', localStorage.key(i));
+        item.setAttribute('dataItemId', key);
+        const attr = document.createAttribute('draggable');
+        attr.value = 'true';
+        item.setAttributeNode(attr);
 
         const span = document.createElement('span');
-        span.textContent = localStorage.getItem(localStorage.key(i));
+        span.textContent = localStorage.getItem(key);
         item.appendChild(span);
         list.appendChild(item);
 
@@ -114,6 +124,64 @@ var model = {
   lsDel: function (item) {
     var thisNote = item.getAttribute('dataItemId');
     localStorage.removeItem(thisNote);
+  },
+
+  dragAndDrop: function (item) {
+    function dragStart(e) {
+      this.style.opacity = '0.4';
+      dragSrcEl = this;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/html', this.innerHTML);
+    };
+
+    function dragEnter(e) {
+      this.classList.add('over');
+    }
+
+    function dragLeave(e) {
+      e.stopPropagation();
+      this.classList.remove('over');
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      return false;
+    }
+
+    function dragDrop(e) {
+      if (dragSrcEl != this) {
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
+      }
+      return false;
+    }
+
+    function dragEnd(e) {
+      var listItens = document.querySelectorAll('.draggable');
+      [].forEach.call(listItens, function(item) {
+        item.classList.remove('over');
+      });
+      this.style.opacity = '1';
+    }
+
+    function addEventsDragAndDrop(el) {
+      el.addEventListener('dragstart', dragStart, false);
+      el.addEventListener('dragenter', dragEnter, false);
+      el.addEventListener('dragover', dragOver, false);
+      el.addEventListener('dragleave', dragLeave, false);
+      el.addEventListener('drop', dragDrop, false);
+      el.addEventListener('dragend', dragEnd, false);
+    }
+
+    var listItens = document.querySelectorAll('.draggable');
+    [].forEach.call(listItens, function(item) {
+      addEventsDragAndDrop(item);
+    });
+
+    addEventsDragAndDrop(item);
   }
+
+
 
 };

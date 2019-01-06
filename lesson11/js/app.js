@@ -10,6 +10,8 @@
 
     main: function () {
 
+
+
     },
 
     event: function () {
@@ -24,9 +26,13 @@
 
       var btnReverse = document.getElementById('reverse');
       btnReverse.onclick = controller.reverseNotes;
+
     }
   };
 
   app.init();
 
+
+
 }());
+
