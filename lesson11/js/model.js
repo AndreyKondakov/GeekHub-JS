@@ -174,8 +174,8 @@ var model = {
       el.addEventListener('dragend', dragEnd, false);
     }
 
-    var listItens = document.querySelectorAll('.draggable');
-    [].forEach.call(listItens, function(item) {
+    var listItems = document.querySelectorAll('.draggable');
+    [].forEach.call(listItems, function(item) {
       addEventsDragAndDrop(item);
     });
 
