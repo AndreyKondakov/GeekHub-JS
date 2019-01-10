@@ -96,10 +96,11 @@ ul.fixed-list {
 
 .github-section{
   background-color:#093846;
+  display: flex;
 }
 
 .github-block {
-  width: 100%;
+  width: 50%;
   height: 100%;
   margin-top: 70px;
   display: flex;
@@ -109,7 +110,18 @@ ul.fixed-list {
   align-items: center;
 }
 
-.github-block .item {
+.all-items {
+  margin-top: 70px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.all-items span {
+  letter-spacing: 1px;
+}
+
+.github-block .item, .all-items .item {
   width: 500px;
   min-height: 150px;
   padding: 10px;
@@ -138,6 +150,17 @@ ul.fixed-list {
 /* - -  -- - -  -  - - - -   */
 .professional-skills-section {
   background-color: #2a2b46;
+}
+
+
+#git-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#git-list li {
+  cursor: pointer;
 }
 
 /* - - - -  - - - - - - -  --   - -- - */
