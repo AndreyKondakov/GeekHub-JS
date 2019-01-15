@@ -6,15 +6,15 @@ geekhub.addEventListener('click', function () {
 
   setTimeout(function () {
 
-    fetch('https://api.github.com/users/AndreyKondakov/repos\n', {
-    }).then(dataWrappedByPromise => dataWrappedByPromise.json())
+    fetch('https://api.github.com/users/AndreyKondakov/repos\n', {})
+      .then(dataWrappedByPromise => dataWrappedByPromise.json())
       .then(data => {
         var getOneBranh = data[13];
         var getReposLastDate = getOneBranh['pushed_at'];
         var itemDate = document.getElementById('geekhubJs');
         var spanDate = itemDate.querySelector('.result-item');
         spanDate.innerHTML = getReposLastDate;
-      }).catch(function(err) {
+      }).catch(function (err) {
       console.log('Error!')
     });
     div.classList.remove('spinner');
@@ -24,17 +24,17 @@ geekhub.addEventListener('click', function () {
 });
 
 function getData() {
-  fetch('https://api.github.com/users/AndreyKondakov/repos\n', {
-  }).then(dataWrappedByPromise => dataWrappedByPromise.json())
+  fetch('https://api.github.com/users/AndreyKondakov/repos\n', {})
+    .then(dataWrappedByPromise => dataWrappedByPromise.json())
     .then(data => {
       var list = document.getElementById('git-list');
-      for(let i=0; i<data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         let li = document.createElement('li');
         li.classList.add('repItem');
         li.innerHTML = data[i]['name'];
         list.appendChild(li);
       }
-    }).catch(function(err) {
+    }).catch(function (err) {
     console.log('Error!')
   });
 };
@@ -66,22 +66,15 @@ function draw() {
     drops[i]++;
   }
 }
+
 setInterval(draw, 47);
 // --------------------- end canvas
 
-
-
 var list = document.getElementById('git-list');
-
 list.addEventListener('click', function (e) {
-  var count = [].indexOf.call(this.children, (e ? e.target : event.srcElement) );
+  var count = [].indexOf.call(this.children, (e ? e.target : event.srcElement));
   // count++;
-
-  console.log(count);
-  // console.log(e.target);
-
   var target = e.target;
-
 
   if (target.className === 'repItem') {
 
@@ -90,112 +83,25 @@ list.addEventListener('click', function (e) {
     target.appendChild(div);
 
     // setTimeout(function () {
-
-      fetch('https://api.github.com/users/AndreyKondakov/repos\n', {
-      }).then(dataWrappedByPromise => dataWrappedByPromise.json())
-        .then(data => {
-          var getOneBranch = data[count];
-          console.log(getOneBranch);
-          var getReposLastDate = getOneBranch['pushed_at'];
-          console.log(getReposLastDate);
-          // // var itemDate = document.getElementById('geekhubJs');
-          // // var spanDate = itemDate.querySelector('.result-item');
-          // // spanDate.innerHTML = getReposLastDate;
-          //
-          var span = document.createElement('span');
-          span.innerHTML = ' ' + getReposLastDate;
-          div.classList.remove('spinner');
-          target.appendChild(span);
-
-
-
-        }).catch(function(err) {
-        console.log('Error!');
-        // var span = document.createElement('span');
-        // span.innerHTML = 'test';
-        // target.appendChild(span);
-      });
-
-      // target.remove(div);
-      console.log('testikkkkkk');
+    fetch('https://api.github.com/users/AndreyKondakov/repos\n', {})
+      .then(dataWrappedByPromise => dataWrappedByPromise.json())
+      .then(data => {
+        var getOneBranch = data[count];
+        var getReposLastDate = getOneBranch['pushed_at'];
+        var span = document.createElement('span');
+        span.innerHTML = ' ' + getReposLastDate;
+        div.classList.remove('spinner');
+        // target.remove(div);
+        target.appendChild(span);
+      }).catch(function (err) {
+      console.log('Error!');
+    });
     // }, 3000);      // setTimeout for see spinner
-
   }
-
 });
 
 
-// list.addEventListener('click', ({target}) => {
-//
-//
-//
-//
-//   // var repItem = document.getElementsByClassName('repItem');
-//
-//   // var list = document.getElementById('git-list');
-//   // console.log(list);
-//
-//   // function test(e){
-//   //   console.log( [].indexOf.call(this.children, (e ? e.target : event.srcElement) ) );
-//   // };
-//   // test(target);
-//   //
-//
-//
-//   if (target.className === 'repItem') {
-//
-//
-//
-//
-//     // var count = target.indexOf.call(this.children, (e ? e.target : event.srcElement) );
-//
-//
-//     // list.removeChild(target);
-//     // console.log(count);
-//
-//     var div = document.createElement('div');
-//     div.classList.add('spinner');
-//     target.appendChild(div);
-//
-//     setTimeout(function () {
-//
-//       fetch('https://api.github.com/users/AndreyKondakov/repos\n', {
-//       }).then(dataWrappedByPromise => dataWrappedByPromise.json())
-//         .then(data => {
-//           // var getOneBranh = name[target.innerText];
-//
-//
-//             // var getOneBranh = data[1];
-//           // console.log(getOneBranh);
-//           // var getReposLastDate = getOneBranh['pushed_at'];
-//           // var itemDate = document.getElementById('geekhubJs');
-//           // var spanDate = itemDate.querySelector('.result-item');
-//           // spanDate.innerHTML = getReposLastDate;
-//         }).catch(function(err) {
-//         console.log('Error!')
-//       });
-//       // div.classList.remove('spinner');
-//       target.remove(div);
-//
-//
-//     }, 1000);      // setTimeout for see spinner
-//
-//
-//   }
-// });
-//
-
-
-
-
-
-
-
-
-
-
 //   second spinner ---------------------
-
 
 var PI = 3.1415926535897932;
 var TAU = 6.28318530718;
@@ -203,131 +109,111 @@ var DEG2RAD = 0.01745329251;
 var RAD2DEG = 57.2957795;
 var EPSILON = 2.2204460492503131e-16;
 
-function radians(v)
-{
+function radians(v) {
   return v * DEG2RAD;
 }
 
-function degrees(v)
-{
+function degrees(v) {
   return v * RAD2DEG;
 }
 
-function min(a, b)
-{
-  if(a < b) return a; return b;
+function min(a, b) {
+  if (a < b) return a;
+  return b;
 }
 
-function max (a, b)
-{
-  if(a > b) return a; return b;
+function max(a, b) {
+  if (a > b) return a;
+  return b;
 }
 
-function round_to(a, f)
-{
+function round_to(a, f) {
   return a.toFixed(f);
 }
 
-function clamp(a, min, max)
-{
-  if(a < min) return min;
-  else if(a > max) return max;
+function clamp(a, min, max) {
+  if (a < min) return min;
+  else if (a > max) return max;
   else return a;
 }
 
-function lerp(a,b,t)
-{
-  return (1-t) * a + t * b;
+function lerp(a, b, t) {
+  return (1 - t) * a + t * b;
 }
 
-function angle(x,y)
-{
-  return Math.atan2(y,x) * RAD2DEG + 180;
+function angle(x, y) {
+  return Math.atan2(y, x) * RAD2DEG + 180;
 }
 
-function sigmoid(input, t)
-{
+function sigmoid(input, t) {
   return 1 / (1 + Math.exp(-input + t));
 }
 
-function smoothstep(min, max, val)
-{
-  var x = Math.max(0, Math.min(1, (val-min) / (max-min)));
+function smoothstep(min, max, val) {
+  var x = Math.max(0, Math.min(1, (val - min) / (max - min)));
   return x * x * (3 - 2 * x);
 }
 
-function move_towards(val, target, rate)
-{
+function move_towards(val, target, rate) {
   var result = val;
-  if(target > val)
-  {
+  if (target > val) {
     result += rate;
-    if(result > target) return target;
+    if (result > target) return target;
   }
-  else
-  {
+  else {
     result -= rate;
-    if(result < target) return target;
+    if (result < target) return target;
   }
   return result;
 }
 
-function lazy_ease(now, end, speed)
-{
+function lazy_ease(now, end, speed) {
   return now + (end - now) / speed;
 }
 
-function wrap_value(value, min, max)
-{
-  if(value > max) return value - max;
-  if(value < min) return value + max;
+function wrap_value(value, min, max) {
+  if (value > max) return value - max;
+  if (value < min) return value + max;
   return value;
 }
 
-function ping_pong(t)
-{
+function ping_pong(t) {
   return (Math.sin(t) / 2) + 0.5;
 }
 
-function rgb_to_str(rgb)
-{
+function rgb_to_str(rgb) {
   var r = Math.floor(rgb[0]);
   var g = Math.floor(rgb[1]);
   var b = Math.floor(rgb[2]);
   return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
-function rand(min, max)
-{
+function rand(min, max) {
   return (Math.random() * (max - min + 1)) + min;
 }
 
-function rand_int(min, max)
-{
+function rand_int(min, max) {
   return Math.floor(rand(min, max));
 }
 
-function lerp(a,b,t)
-{
-  return (1-t) * a + t * b;
+function lerp(a, b, t) {
+  return (1 - t) * a + t * b;
 }
 
-function heartbeat(t, intensity, freq)
-{
+function heartbeat(t, intensity, freq) {
   var v = Math.atan(Math.sin(t * PI * freq) * intensity);
   return (v + PI / 2) / PI;
 }
 
-function grid_to_sphere(x,y, width, height)
-{
+function grid_to_sphere(x, y, width, height) {
   var radius = width / (2.0 * PI);
   var phi = ((y / height) - 0.5) * PI;
   var theta = (x / width) * 2.0 * PI;
   var px = radius * Math.sin(theta) * Math.sin(phi);
   var py = radius * Math.cos(phi);
-  var pz	= radius * Math.cos(theta) * Math.sin(phi);
+  var pz = radius * Math.cos(theta) * Math.sin(phi);
 
-  return [px,py,pz];
+  return [px, py, pz];
 }
 
 // -------------------------
@@ -338,15 +224,14 @@ var grid_size = 85;
 
 var shapes = [];
 
-function Shape(x,y, rate)
-{
+function Shape(x, y, rate) {
   var r = {};
   r.x = x;
   r.y = y;
   r.angle = 0;
   r.rate = rate;
   r.radius = 5;
-  r.rgb = [255,255,255];
+  r.rgb = [255, 255, 255];
   r.width = 2;
   return r;
 }
@@ -363,7 +248,7 @@ canvas.width = width;
 canvas.height = height;
 var dw = -((width - el_width) / 2);
 var dh = -((height - el_height) / 2);
-canvas.style.transform = 'translateX(' + dw +'px) translateY('+dh+'px) scale(' + (1/ratio) + ')';
+canvas.style.transform = 'translateX(' + dw + 'px) translateY(' + dh + 'px) scale(' + (1 / ratio) + ')';
 
 var ctx = canvas.getContext('2d');
 container.appendChild(canvas);
@@ -380,10 +265,8 @@ var colours =
 
 var max_dist = Math.sqrt((grid_size * rows) + (grid_size * cols));
 
-for(var y = 0; y < rows; ++y)
-{
-  for(var x = 0; x < cols; ++x)
-  {
+for (var y = 0; y < rows; ++y) {
+  for (var x = 0; x < cols; ++x) {
     var gx = cx + (x * grid_size) - ((grid_size * cols) / 2);
     var gy = cy + (y * grid_size) - ((grid_size * rows) / 2);
 
@@ -398,16 +281,16 @@ var last_t = window.performance.now();
 var elapsed = 0;
 
 requestAnimationFrame(update);
-function update(t)
-{
+
+function update(t) {
   var dt = (t - last_t) / 1000;
   last_t = t;
   elapsed += dt;
   requestAnimationFrame(update);
 
-  ctx.clearRect(0,0,width,width);
+  ctx.clearRect(0, 0, width, width);
 
-  var root_index = Math.floor((cols * rows)/2);
+  var root_index = Math.floor((cols * rows) / 2);
   var root = shapes[root_index];
 
   var st = ping_pong(elapsed * 2);
@@ -424,15 +307,12 @@ function update(t)
   root.rgb[1] = lerp(50, 255, st);
   root.rgb[2] = lerp(155, 255, st);
 
-  for(var y = 0; y < rows; ++y)
-  {
-    for(var x = 0; x < cols; ++x)
-    {
+  for (var y = 0; y < rows; ++y) {
+    for (var x = 0; x < cols; ++x) {
       var index = x + (y * cols);
       var shape = shapes[index];
 
-      if(index !== root_index)
-      {
+      if (index !== root_index) {
 
         var gx = root.x + (x * grid_size) - ((grid_size * cols) / 2);
         var gy = root.y + (y * grid_size) - ((grid_size * rows) / 2);
@@ -443,7 +323,7 @@ function update(t)
 
         shape.x = lerp(shape.x, gx, rate);
         shape.y = lerp(shape.y, gy, rate);
-        shape.angle  = lerp(shape.angle, root.angle, rate);
+        shape.angle = lerp(shape.angle, root.angle, rate);
         shape.radius = lerp(shape.radius, root.radius, rate);
         shape.width = lerp(shape.width, root.width, rate);
 
@@ -459,8 +339,7 @@ function update(t)
 
 }
 
-function draw_shape(s)
-{
+function draw_shape(s) {
   var width = grid_size * cols;
   var height = grid_size * rows;
   var sphere = grid_to_sphere(s.x, s.y, width, height);
@@ -486,12 +365,9 @@ function draw_shape(s)
 	*/
 
   ctx.beginPath();
-  ctx.arc(0,0,s.radius,0,360 * DEG2RAD);
+  ctx.arc(0, 0, s.radius, 0, 360 * DEG2RAD);
   ctx.fill();
 
   ctx.restore();
 }
 //    end second spinner ---------------------
-
-
-

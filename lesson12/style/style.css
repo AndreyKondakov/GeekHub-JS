@@ -155,8 +155,6 @@ ul.fixed-list {
   align-items: center;
 }
 
-
-
 /* << spinner >> */
 
 .result-block {
@@ -190,14 +188,10 @@ ul.fixed-list {
 /* end second spinner */
 
 
-
-
-
 /* - -  -- - -  -  - - - -   */
 .professional-skills-section {
   background-color: #2a2b46;
 }
-
 
 #git-list {
   display: flex;
@@ -278,7 +272,3 @@ ul.fixed-list {
   height: 100vh;
   overflow: hidden;
 }
-
-
-
-
