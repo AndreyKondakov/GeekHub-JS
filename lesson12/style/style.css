@@ -180,6 +180,26 @@ ul.fixed-list {
 
 /* << end spinner >> */
 
+/* second spinner */
+
+/*.superSpin {*/
+  /*width: 300px;*/
+  /*height: 300px;*/
+  /*!*left: 50%;*!*/
+  /*!*top: 50%;*!*/
+  /*background: black;*/
+  /*!*position: absolute;*!*/
+  /*transform: translate(20%, 0%);*/
+  /*!*transform: translate(0%, -50%);*!*/
+  /*!*display: none;*!*/
+/*}*/
+
+/*.hidden {*/
+  /*display: none;*/
+/*}*/
+
+/* end second spinner */
+
 
 
 
@@ -198,6 +218,12 @@ ul.fixed-list {
 
 #git-list li {
   cursor: pointer;
+}
+
+#git-list span {
+  margin-left: 10px;
+  color: #2fc150;
+  font-size: 11px;
 }
 
 /* - - - -  - - - - - - -  --   - -- - */
