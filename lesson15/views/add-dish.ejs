@@ -4,18 +4,19 @@
   <% include ./partials/head.ejs %>
 </head>
 <body>
-<% include ./partials/header.ejs %>
+  <% include ./partials/header.ejs %>
 
 
 <div class="add-page">
   <div class="form">
-    <form class="login-form">
-      <input type="text" placeholder="Dish names"/>
-      <input type="text" placeholder="Calories"/>
-      <button>Add</button>
+    <form id="login-form">
+      <input type="text" name="dish" placeholder="Dish names"/>
+      <input type="text" name="calories" placeholder="Calories"/>
+      <button id="btn-add">Add</button>
     </form>
   </div>
 </div>
+
 
 
 </body>
