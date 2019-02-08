@@ -7,13 +7,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-var MongoClient = require('mongo.db').MongoClient;
+const MongoClient = require("mongodb").MongoClient;
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-var db;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,4 +50,43 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
 module.exports = app;
+
+
+// создаем объект MongoClient и передаем ему строку подключения
+const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
+mongoClient.connect(function(err, client){
+
+  const db = client.db("dishesdb");
+  const collection = db.collection("dishes");
+  let dish = {dishName: "Test dish", calories: 200};
+  collection.insertOne(dish, function(err, result){
+
+    if(err){
+      return console.log(err);
+    }
+    console.log(result.ops);
+    client.close();
+  });
+});
+
+
+
+//
+// var addNewDishdb = function (singlDish) {
+//   mongoClient.connect(function(err, client){
+//
+//     const db = client.db("dishesdb");
+//     const collection = db.collection("dishes");
+//     // let dish = {dishName: "Test dish", calories: 200};
+//     collection.insertOne(singlDish, function(err, result){
+//
+//       if(err){
+//         return console.log(err);
+//       }
+//       console.log(result.ops);
+//       client.close();
+//     });
+//   });
+// };

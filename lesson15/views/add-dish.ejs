@@ -10,14 +10,14 @@
 <div class="add-page">
   <div class="form">
     <form id="login-form">
-      <input type="text" name="dish" placeholder="Dish names"/>
-      <input type="text" name="calories" placeholder="Calories"/>
+      <input type="text" name="dish" pattern="[A-Za-zА-Яа-яЁё]" placeholder="Dish names"/>
+      <input type="text" name="calories" pattern="^[ 0-9]+$" placeholder="Calories"/>
       <button id="btn-add">Add</button>
     </form>
   </div>
 </div>
 
 
-
+<% include ./partials/footer.ejs %>
 </body>
 </html>
