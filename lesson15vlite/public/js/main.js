@@ -9,8 +9,8 @@ function GetDishes() {
       $.each(dishes, function (index, dish) {
         // добавляем полученные элементы в таблицу
         rows += row(dish);
-      })
-      $("table tbody").append(rows);
+      });
+      $("table.result tbody").append(rows);
     }
   });
 }
@@ -97,7 +97,7 @@ $("#reset").click(function (e) {
 });
 
 // отправка формы
-$("form").submit(function (e) {
+$("form[name='\dishForm\']").submit(function (e) {
   e.preventDefault();
   var id = this.elements["id"].value;
   var name = this.elements["name"].value;
