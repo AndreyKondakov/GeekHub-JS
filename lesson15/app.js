@@ -7,13 +7,20 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 
-const MongoClient = require("mongodb").MongoClient;
 
+const bodyParser= require('body-parser');
+const MongoClient = require("mongodb").MongoClient;
+// const objectId = require("mongodb").ObjectID;
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var dishesRouter = require('./routes/dishes');
 
 var app = express();
+
+// const jsonParser = express.json();
+const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
+let dbClient;
+app.use(bodyParser.urlencoded({extended: true}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +39,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/dishes', dishesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,42 +58,25 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
 
+// mongodb
 
-// создаем объект MongoClient и передаем ему строку подключения
-const mongoClient = new MongoClient("mongodb://localhost:27017/", { useNewUrlParser: true });
 mongoClient.connect(function(err, client){
-
-  const db = client.db("dishesdb");
-  const collection = db.collection("dishes");
-  let dish = {dishName: "Test dish", calories: 200};
-  collection.insertOne(dish, function(err, result){
-
-    if(err){
-      return console.log(err);
-    }
-    console.log(result.ops);
-    client.close();
-  });
+  if(err) return console.log(err);
+  dbClient = client;
+  app.locals.collection = client.db("dishesdb").collection("dishes");
 });
 
 
 
-//
-// var addNewDishdb = function (singlDish) {
-//   mongoClient.connect(function(err, client){
-//
-//     const db = client.db("dishesdb");
-//     const collection = db.collection("dishes");
-//     // let dish = {dishName: "Test dish", calories: 200};
-//     collection.insertOne(singlDish, function(err, result){
-//
-//       if(err){
-//         return console.log(err);
-//       }
-//       console.log(result.ops);
-//       client.close();
-//     });
-//   });
-// };
+// прослушиваем прерывание работы программы (ctrl-c)
+process.on("SIGINT", () => {
+  dbClient.close();
+  process.exit();
+});
+
+
+
+
+module.exports = app;
+

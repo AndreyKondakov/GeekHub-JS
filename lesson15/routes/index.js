@@ -18,6 +18,13 @@ router.get('/day-menu', function(req, res) {
 });
 
 
+
+
+// router.get('/api/users', function(req, res) {
+//   res.render('index', { title: 'DayFooD day menu' });
+// });
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'DayFooD' });
