@@ -135,5 +135,27 @@ $("form[name=\'dayFood\']").submit(function (e) {
   console.log('success', dbDishes);
 
 
+  // console.log('success result', dbDishes[0].calories);
+
+
+
+  var value = this.elements["value"].value;
+  // console.log(value);
+
+  var result = 0;
+  var i = 0;
+  do {
+    result += +dbDishes[i].calories;
+    i += 1;
+  } while (result < value);
+  console.log("результат: ", result);
+
+  console.log(i);
+
+  for (i; i>0; i--) {
+    console.log(dbDishes[i])
+  }
+
 
 });
+
