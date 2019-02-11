@@ -9,7 +9,6 @@ function GetDishes() {
     success: function (dishes) {
       dbDishes = dishes;
       var rows = "";
-      // console.log(dishes);
       $.each(dishes, function (index, dish) {
         // добавляем полученные элементы в таблицу
         rows += row(dish);
@@ -132,16 +131,7 @@ console.log('Users: ', dbDishes);
 $("form[name=\'dayFood\']").submit(function (e) {
   e.preventDefault();
 
-  console.log('success', dbDishes);
-
-
-  // console.log('success result', dbDishes[0].calories);
-
-
-
   var value = this.elements["value"].value;
-  // console.log(value);
-
   var result = 0;
   var i = 0;
   // do {
@@ -157,7 +147,6 @@ $("form[name=\'dayFood\']").submit(function (e) {
 
   var rows = "";
   for (i; i>0; i--) {
-    console.log(dbDishes[i]);
     rows += row(dbDishes[i]);
   }
   $("table#value-result tbody").append(rows);
