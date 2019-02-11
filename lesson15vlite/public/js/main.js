@@ -144,18 +144,22 @@ $("form[name=\'dayFood\']").submit(function (e) {
 
   var result = 0;
   var i = 0;
-  do {
+  // do {
+  //   result += +dbDishes[i].calories;
+  //   i++;
+  // } while (result < value);
+  for (i; (result < value); i++) {
     result += +dbDishes[i].calories;
-    i += 1;
-  } while (result < value);
-  console.log("результат: ", result);
-
-  console.log(i);
-
-  for (i; i>0; i--) {
-    console.log(dbDishes[i])
+    console.log(dbDishes[i]);
+    if (result+300 > value) break;
   }
+  console.log("результат: ", result, "i = ", i);
 
-
+  var rows = "";
+  for (i; i>0; i--) {
+    console.log(dbDishes[i]);
+    rows += row(dbDishes[i]);
+  }
+  $("table#value-result tbody").append(rows);
 });
 
