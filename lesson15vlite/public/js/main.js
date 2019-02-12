@@ -150,5 +150,5 @@ $("form[name=\'dayFood\']").submit(function (e) {
     rows += row(dbDishes[i]);
   }
   $("table#value-result tbody").append(rows);
+  $("#value-calories").text(result + " калорий входит в данный рацион")
 });
-

@@ -1,3 +1,5 @@
+var dbDishes;
+
 // Получение всех пользователей
 function GetDishes() {
   $.ajax({
@@ -5,14 +7,16 @@ function GetDishes() {
     type: "GET",
     contentType: "application/json",
     success: function (dishes) {
+      dbDishes = dishes;
       var rows = "";
       $.each(dishes, function (index, dish) {
         // добавляем полученные элементы в таблицу
         rows += row(dish);
-      })
-      $("table tbody").append(rows);
+      });
+      $("table.result tbody").append(rows);
     }
   });
+  return dbDishes
 }
 // Получение одного пользователя
 function GetDish(id) {
@@ -97,7 +101,7 @@ $("#reset").click(function (e) {
 });
 
 // отправка формы
-$("form").submit(function (e) {
+$("form[name=\'dishForm\']").submit(function (e) {
   e.preventDefault();
   var id = this.elements["id"].value;
   var name = this.elements["name"].value;
@@ -121,3 +125,29 @@ $("body").on("click", ".removeLink", function () {
 
 // загрузка пользователей
 GetDishes();
+
+console.log('Users: ', dbDishes);
+
+$("form[name=\'dayFood\']").submit(function (e) {
+  e.preventDefault();
+
+  var value = this.elements["value"].value;
+  var result = 0;
+  var i = 0;
+  // do {
+  //   result += +dbDishes[i].calories;
+  //   i++;
+  // } while (result < value);
+  for (i; (result < value); i++) {
+    result += +dbDishes[i].calories;
+    console.log(dbDishes[i]);
+    if (result+300 > value) break;
+  }
+  console.log("результат: ", result, "i = ", i);
+
+  var rows = "";
+  for (i; i>0; i--) {
+    rows += row(dbDishes[i]);
+  }
+  $("table#value-result tbody").append(rows);
+});

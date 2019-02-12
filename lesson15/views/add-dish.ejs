@@ -9,7 +9,8 @@
 
 <div class="add-page">
   <div class="form">
-    <form id="login-form">
+    <form id="login-form" name="dishForm">
+      <input type="hidden" name="id" value="0" />
       <input name="name" placeholder="Dish names"/>
       <input name="calories" pattern="^[0-9]+$" placeholder="Calories"/>
       <button type="submit" id="btn-add">Add</button>
