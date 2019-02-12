@@ -131,9 +131,11 @@ console.log('Users: ', dbDishes);
 $("form[name=\'dayFood\']").submit(function (e) {
   e.preventDefault();
 
+  $("#value-result tbody").empty();
+
   var value = this.elements["value"].value;
   var result = 0;
-  var i = 0;
+  var i = 1;
   // do {
   //   result += +dbDishes[i].calories;
   //   i++;
@@ -141,14 +143,18 @@ $("form[name=\'dayFood\']").submit(function (e) {
   for (i; (result < value); i++) {
     result += +dbDishes[i].calories;
     console.log(dbDishes[i]);
-    if (result+300 > value) break;
+    if (result+300 >= value) break;
   }
   console.log("результат: ", result, "i = ", i);
 
   var rows = "";
-  for (i; i>0; i--) {
+  // for (i; i>0; i--) {
+  //   rows += row(dbDishes[i]);
+  // }
+  do {
     rows += row(dbDishes[i]);
-  }
+    i--;
+  } while (i>0);
   $("table#value-result tbody").append(rows);
   $("#value-calories").text(result + " калорий входит в данный рацион")
 });

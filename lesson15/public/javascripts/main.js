@@ -128,8 +128,9 @@ GetDishes();
 
 console.log('Users: ', dbDishes);
 
-$("form[name=\'dayFood\']").submit(function (e) {
+$("form[name=\'dayFood\']").empty().submit(function (e) {
   e.preventDefault();
+
 
   var value = this.elements["value"].value;
   var result = 0;
