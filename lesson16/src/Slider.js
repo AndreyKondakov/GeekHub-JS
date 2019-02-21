@@ -60,19 +60,94 @@ const sliderDB = [
 //   }
 // }
 
-function Slider(props) {
-  var firstSlide = props.start;
-  var lastSlide = props.end;
-  return (
-    <div className="slider">
-      <p>{props.start}</p>
-      {
+// function Slider(props) {
+//   var firstSlide = props.start;
+//   var lastSlide = props.end;
+//
+//   return (
+//     <div className="slider">
+//       <p>{props.start}</p>
+//       {
+//         <PageSlider title={sliderDB[firstSlide].title}  />
+//       }
+//
+//     </div>
+//   )
+// }
+// class Slider extends Component {
+//   // getInitialState() {
+//   //   return {
+//   //     seconds: 0
+//   //   }
+//   // };
+//   // componentDidMount() {
+//   //   this.timer = setInterval(this.tick, 2000);
+//   // };
+//   // tick() {
+//   //   this.setState({ seconds: this.state.seconds + 1 });
+//   // };
+//   // componentWillUnmount() {
+//   //   clearInterval(this.timer);
+//   // };
+//
+//   render() {
+//     var firstSlide = this.props.start;
+//     // var lastSlide = this.props.end;
+//
+//     return (
+//
+//       <div className="slider">
+//         {/*<h4> Уже прошло {this.state.seconds} секунд </h4>*/}
+//         {
+//
+//           <PageSlider title={sliderDB[firstSlide].title}/>
+//         }
+//       </div>
+//     )
+//   }
+// }
 
-        <PageSlider title={sliderDB[firstSlide].title}  />
-      }
 
-    </div>
-  )
+class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  tick() {
+    this.setState(state => ({
+      seconds: state.seconds + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  render() {
+    var firstSlide = this.props.start;
+    // var lastSlide = this.props.end;
+
+    return (
+
+      <div className="slider">
+        Seconds: {this.state.seconds}
+        {/*<h4> Уже прошло {this.state.seconds} секунд </h4>*/}
+        {
+
+          <PageSlider title={sliderDB[firstSlide].title}/>
+        }
+      </div>
+    )
+  }
 }
+
+
+
+
 
 export default Slider;
