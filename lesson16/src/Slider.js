@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Slider.css';
-import './PageSlider';
+// import './PageSlider';
 import PageSlider from "./PageSlider";
 
-var sliderDB = [
+const sliderDB = [
   {
     "id": "1",
     "img": "https://images.wallpaperscraft.ru/image/need_for_speed_zhazhda_skorosti_ford_mustang_shelby_gt500_94943_1920x1080.jpg",
@@ -37,38 +37,42 @@ var sliderDB = [
 ];
 
 
-class Slider extends Component {
+// class Slider extends Component {
+//   // sliderDB = {
+//   //   sliderDB
+//   // };
+//   render() {
+//     return (
+//       <div className="slider">
+//         <p>{this.props.start}</p>
+//         <p>Slider:</p>
+//         {
+//           sliderDB.map(function (el) {
+//             return <PageSlider
+//               key={el.id}
+//               image={el.img}
+//               title={el.title}
+//             />
+//           })
+//         }
+//       </div>
+//     );
+//   }
+// }
 
-  render() {
-    // {
-    //   this.state.sliderPage(function (el) {
-    //     return <PageSlider
-    //       key={el.id}
-    //       image={el.img}
-    //       title={el.title}
-    //     />;
-    //   })
-    // }
+function Slider(props) {
+  var firstSlide = props.start;
+  var lastSlide = props.end;
+  return (
+    <div className="slider">
+      <p>{props.start}</p>
+      {
 
+        <PageSlider title={sliderDB[firstSlide].title}  />
+      }
 
-
-
-    return (
-      <div className="slider">
-        <p>{this.props.start}</p>
-        <p>Slider:</p>
-        {
-          sliderDB.map(function (el) {
-            return <PageSlider
-              key={el.id}
-              image={el.img}
-              title={el.title}
-            />
-          })
-        }
-      </div>
-    );
-  }
+    </div>
+  )
 }
 
 export default Slider;
