@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Slider.css';
-// import './PageSlider';
 import PageSlider from "./PageSlider";
 
 const sliderDB = [
@@ -33,6 +32,11 @@ const sliderDB = [
     "id": "6",
     "img": "https://wallpaperscraft.ru/download/transformers_transformery_bumblebee_robot_93734/1920x1080",
     "title": "Slider title #6 - Transformers"
+  },
+  {
+    "id": "7",
+    "img": "",
+    "title": ""
   }
 ];
 
@@ -111,17 +115,22 @@ const sliderDB = [
 class Slider extends Component {
   constructor(props) {
     super(props);
-    this.state = { seconds: 0 };
+    this.state = { seconds: this.props.start };
   }
 
   tick() {
     this.setState(state => ({
       seconds: state.seconds + 1
     }));
+    if (this.state.seconds === this.props.end +1) {
+      this.setState({
+        seconds: this.props.start
+      });
+    }
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.tick(), this.props.timeout * 1000);
   }
 
   componentWillUnmount() {
@@ -129,25 +138,19 @@ class Slider extends Component {
   }
 
   render() {
-    var firstSlide = this.props.start;
-    // var lastSlide = this.props.end;
-
     return (
-
       <div className="slider">
         Seconds: {this.state.seconds}
-        {/*<h4> Уже прошло {this.state.seconds} секунд </h4>*/}
         {
-
-          <PageSlider title={sliderDB[firstSlide].title}/>
+          <PageSlider
+            image={sliderDB[this.state.seconds].img}
+            title={sliderDB[this.state.seconds].title}
+          />
         }
       </div>
     )
   }
 }
-
-
-
 
 
 export default Slider;
