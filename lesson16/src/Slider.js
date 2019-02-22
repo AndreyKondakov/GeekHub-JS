@@ -15,22 +15,22 @@ const sliderDB = [
   },
   {
     "id": "3",
-    "img": "https://wallpaperscraft.ru/download/skandinavskij_forsazh_borning_2014_mustang_103541/1920x1080",
+    "img": "https://images.wallpaperscraft.ru/image/skandinavskij_forsazh_borning_2014_mustang_103541_1920x1080.jpg",
     "title": "Slider title #3 - Skandinavskij forsazh"
   },
   {
     "id": "4",
-    "img": "https://wallpaperscraft.ru/download/wall_e_eva_roboty_para_104159/1920x1080",
+    "img": "https://images.wallpaperscraft.ru/image/wall_e_eva_roboty_para_104159_1920x1080.jpg",
     "title": "Slider title #4 - Wall-e"
   },
   {
     "id": "5",
-    "img": "https://wallpaperscraft.ru/download/varkraft_warcraft_2016_voin_bronya_108524/1920x1080",
+    "img": "https://images.wallpaperscraft.ru/image/varkraft_warcraft_2016_voin_bronya_108524_1920x1080.jpg",
     "title": "Slider title #5 - Warcraft"
   },
   {
     "id": "6",
-    "img": "https://wallpaperscraft.ru/download/transformers_transformery_bumblebee_robot_93734/1920x1080",
+    "img": "https://images.wallpaperscraft.ru/image/transformers_transformery_bumblebee_robot_93734_1920x1080.jpg",
     "title": "Slider title #6 - Transformers"
   },
   {
@@ -41,90 +41,19 @@ const sliderDB = [
 ];
 
 
-// class Slider extends Component {
-//   // sliderDB = {
-//   //   sliderDB
-//   // };
-//   render() {
-//     return (
-//       <div className="slider">
-//         <p>{this.props.start}</p>
-//         <p>Slider:</p>
-//         {
-//           sliderDB.map(function (el) {
-//             return <PageSlider
-//               key={el.id}
-//               image={el.img}
-//               title={el.title}
-//             />
-//           })
-//         }
-//       </div>
-//     );
-//   }
-// }
-
-// function Slider(props) {
-//   var firstSlide = props.start;
-//   var lastSlide = props.end;
-//
-//   return (
-//     <div className="slider">
-//       <p>{props.start}</p>
-//       {
-//         <PageSlider title={sliderDB[firstSlide].title}  />
-//       }
-//
-//     </div>
-//   )
-// }
-// class Slider extends Component {
-//   // getInitialState() {
-//   //   return {
-//   //     seconds: 0
-//   //   }
-//   // };
-//   // componentDidMount() {
-//   //   this.timer = setInterval(this.tick, 2000);
-//   // };
-//   // tick() {
-//   //   this.setState({ seconds: this.state.seconds + 1 });
-//   // };
-//   // componentWillUnmount() {
-//   //   clearInterval(this.timer);
-//   // };
-//
-//   render() {
-//     var firstSlide = this.props.start;
-//     // var lastSlide = this.props.end;
-//
-//     return (
-//
-//       <div className="slider">
-//         {/*<h4> Уже прошло {this.state.seconds} секунд </h4>*/}
-//         {
-//
-//           <PageSlider title={sliderDB[firstSlide].title}/>
-//         }
-//       </div>
-//     )
-//   }
-// }
-
-
 class Slider extends Component {
   constructor(props) {
     super(props);
-    this.state = { seconds: this.props.start };
+    this.state = { slide: this.props.start };
   }
 
   tick() {
     this.setState(state => ({
-      seconds: state.seconds + 1
+      slide: state.slide + 1
     }));
-    if (this.state.seconds === this.props.end +1) {
+    if (this.state.slide === this.props.end +1) {
       this.setState({
-        seconds: this.props.start
+        slide: this.props.start
       });
     }
   }
@@ -140,17 +69,16 @@ class Slider extends Component {
   render() {
     return (
       <div className="slider">
-        Seconds: {this.state.seconds}
+        {/*Seconds: {this.state.slide}*/}
         {
           <PageSlider
-            image={sliderDB[this.state.seconds].img}
-            title={sliderDB[this.state.seconds].title}
+            image={sliderDB[this.state.slide].img}
+            title={sliderDB[this.state.slide].title}
           />
         }
       </div>
     )
   }
 }
-
 
 export default Slider;
