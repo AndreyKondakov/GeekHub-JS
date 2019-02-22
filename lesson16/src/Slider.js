@@ -69,7 +69,7 @@ class Slider extends Component {
   render() {
     return (
       <div className="slider">
-        {/*Seconds: {this.state.slide}*/}
+        {/*Slider: {this.state.slide}*/}
         {
           <PageSlider
             image={sliderDB[this.state.slide].img}
