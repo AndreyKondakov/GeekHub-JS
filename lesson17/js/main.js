@@ -1,3 +1,17 @@
+// init Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(function(registration) {
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  }).catch(function(err) {
+    //registration failed :(
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}else {
+  console.log('No service-worker on this browser');
+}
+console.log('???');
+
+
 var geekhub = document.getElementById('btn-last-change');
 geekhub.addEventListener('click', function () {
   var div = document.createElement('div');
@@ -40,7 +54,7 @@ function getData() {
 };
 getData();
 
-//  canvas ------------------------
+ // canvas ------------------------
 var ms = document.getElementById("tp2p");
 var tp = ms.getContext("2d");
 ms.height = window.innerHeight;
@@ -101,7 +115,7 @@ list.addEventListener('click', function (e) {
 });
 
 
-//   second spinner ---------------------
+  // second spinner ---------------------
 
 var PI = 3.1415926535897932;
 var TAU = 6.28318530718;
@@ -330,13 +344,10 @@ function update(t) {
         shape.rgb[0] = lerp(shape.rgb[0], root.rgb[0], rate);
         shape.rgb[1] = lerp(shape.rgb[1], root.rgb[1], rate);
         shape.rgb[2] = lerp(shape.rgb[2], root.rgb[2], rate);
-
       }
-
       draw_shape(shape);
     }
   }
-
 }
 
 function draw_shape(s) {
@@ -371,3 +382,29 @@ function draw_shape(s) {
   ctx.restore();
 }
 //    end second spinner ---------------------
+
+// Check our browser supports the Service Worker API.
+
+// if ('serviceWorker' in navigator) {
+//   // Весь код регистрации у нас асинхронный.
+//   navigator.serviceWorker.register('/sw.js')
+//     .then(() => navigator.serviceWorker.ready.then((worker) => {
+//       worker.sync.register('syncdata');
+//     }))
+//     .catch((err) => console.log(err));
+// }
+//
+// function registerServiceWorker() {
+// // регистрирует скрипт sw в поддерживаемых браузерах
+//   if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(() => {
+//       console.log('Service Worker registered successfully.');
+//     }).catch(error => {
+//       console.log('Service Worker registration failed:', error);
+//     });
+//   }
+// }
+//
+// registerServiceWorker();
+
+console.log('main.js');
