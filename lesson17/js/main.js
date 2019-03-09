@@ -1,15 +1,19 @@
 // init Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(function(registration) {
-    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-  }).catch(function(err) {
-    //registration failed :(
-    console.log('ServiceWorker registration failed: ', err);
-  });
-}else {
-  console.log('No service-worker on this browser');
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('sw.js').then(function(registration) {
+//     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+//   }).catch(function(err) {
+//     //registration failed :(
+//     console.log('ServiceWorker registration failed: ', err);
+//   });
+// }else {
+//   console.log('No service-worker on this browser');
+// }
+// console.log('???');
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('/kondakov.github.io/sw.js', {scope: '/kondakov.github.io/'})
 }
-console.log('???');
 
 
 var geekhub = document.getElementById('btn-last-change');
