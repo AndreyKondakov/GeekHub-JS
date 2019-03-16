@@ -1,18 +1,12 @@
-// init Service Worker
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('sw.js').then(function(registration) {
-//     console.log('ServiceWorker registration successful with scope: ', registration.scope);
-//   }).catch(function(err) {
-//     //registration failed :(
-//     console.log('ServiceWorker registration failed: ', err);
-//   });
-// }else {
-//   console.log('No service-worker on this browser');
-// }
-// console.log('???');
-
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('/kondakov.github.io/sw.js', {scope: '/kondakov.github.io/'})
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js', {scope: '/'})
+    .then(function(reg) {
+      // registration worked
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+    }).catch(function(error) {
+    // registration failed
+    console.log('Registration failed with ' + error);
+  });
 }
 
 

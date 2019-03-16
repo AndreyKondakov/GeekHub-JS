@@ -2,10 +2,10 @@ var APP_PREFIX = 'AndreyKondakov_';     // Identifier for this app (this needs t
 var VERSION = 'version_03';         // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION;
 var URLS = [                            // Add URL you want to cache in this list.
-  '/kondakov.github.io/',                     // If you have separate JS/CSS files,
-  '/kondakov.github.io/index.html',            // add path to those files here
-  '/kondakov.github.io/js/main.js',
-  '/kondakov.github.io/style/style.css'
+  '/andreykondakov.github.io/',                     // If you have separate JS/CSS files,
+  '/andreykondakov.github.io/index.html',            // add path to those files here
+  '/andreykondakov.github.io/js/main.js',
+  '/andreykondakov.github.io/style/style.css'
 ];
 
 // Respond with cached resources

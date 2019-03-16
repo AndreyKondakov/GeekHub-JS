@@ -1,56 +1,25 @@
-console.log('sw.js');
-
-var cacheList = [
-  '/',
-  '/index.html',
-  '/js/main.js',
-  '/style/style.css'
-];
-
-this.addEventListener('install', function (event) {
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches
-      .open('v1')
-      .then(function (cache) {
-        return cache.addAll(cacheList);
-      })
-      .catch(err => console.log('Error while fetching assets', err))
-  )
+    caches.open('v1').then(function(cache) {
+      return cache.addAll([
+        '/index.html',
+        '/js/main.js',
+        '/style/style.css'
+      ]);
+    })
+  );
 });
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-          if (response) {
-            return response;
-          }
-          return fetch(event.request);
-        }
-      )
+    caches.match(event.request).then(function(resp) {
+      return resp || fetch(event.request).then(function(response) {
+        let responseClone = response.clone();
+        caches.open('v1').then(function(cache) {
+          cache.put(event.request, responseClone);
+        });
+        return response;
+      });
+    })
   );
 });
-
-
-// const CACHE = 'cache-only-v1';
-//
-// // При установке воркера мы должны закешировать часть данных (статику).
-// self.addEventListener('install', (event) => {
-//   event.waitUntil(
-//     caches.open(CACHE).then((cache) => {
-//       return cache.addAll(cacheList);
-//     })
-//   );
-// });
-//
-// // При запросе на сервер (событие fetch), используем только данные из кэша.
-// self.addEventListener('fetch', (event) =>
-//   event.respondWith(fromCache(event.request))
-// );
-//
-// function fromCache(request) {
-//   return caches.open(CACHE).then((cache) =>
-//     cache.match(request)
-//       .then((matching) => matching || Promise.reject('no-match'))
-//   );
-// }
